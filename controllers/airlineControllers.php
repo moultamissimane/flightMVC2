@@ -30,7 +30,7 @@ class AirlineControllers
             $result = Airline::add($data);
             if ($result) {
                 session::set('success', 'Airline Added');
-                Redirect::to('dashboard');
+                Redirect::to('dashFlight');
             } else {
                 echo $result;
             }

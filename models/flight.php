@@ -48,4 +48,13 @@ class Flight
         $stmt = null;
 
     }
+
+    static public function delete($id){
+        $stmt = DB::connect()->prepare("DELETE FROM Flight WHERE id = '$id'");
+        if($stmt->execute()){
+            return 'ok';
+        }else{
+            return 'error';
+        }
+    }
 }

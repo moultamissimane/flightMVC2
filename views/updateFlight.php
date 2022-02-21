@@ -27,7 +27,6 @@ if (isset($_POST['submit'])) {
                 <div class="mb-4">
                     <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City From</label>
                     <input type="text" name="city_from" id="city_from" value="<?php echo $flight->city_from; ?>" placeholder="Casablanca" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-
                 </div>
                 <div class="mb-4">
                     <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City To</label>

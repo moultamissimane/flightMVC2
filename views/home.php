@@ -1,10 +1,4 @@
-<?php
 
-$data = new FlightControllers();
-$flight = $data->getAll();
-
-
-?>
 <!-- component -->
 <div class="overflow-x-auto">
     <?php include('./views/includes/alerts.php'); ?>
@@ -12,7 +6,7 @@ $flight = $data->getAll();
         <div class="w-full lg:w-5/6">
             <div>
                 <div class="flex justify-center">
-                    <a href="<?php echo BASE_URL; ?>add" class="rounded py-2 px-2 uppercase text-lg font-bold cursor-pointer tracking-wider text-[#71d4f6] border-[#71d4f6] border-2 hover:bg-[#0aa4d8] hover:text-white transition ease-out duration-700">+</a>
+                    <a href="<?php echo BASE_URL; ?>addFlight" class="rounded py-2 px-2 uppercase text-lg font-bold cursor-pointer tracking-wider text-[#71d4f6] border-[#71d4f6] border-2 hover:bg-[#0aa4d8] hover:text-white transition ease-out duration-700">+</a>
 
                     <div class="flex items-center max-w-md mx-auto bg-white rounded-lg " x-data="{ search: '' }">
                         <div class="w-full">
@@ -49,9 +43,6 @@ $flight = $data->getAll();
                                 </td>
                                 <td class="py-3 px-6 text-left">
                                     <div class="flex items-center">
-                                        <div class="mr-2">
-                                            <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" />
-                                        </div>
                                         <span><?php echo $f['city_from']?></span>
                                     </div>
                                 </td>
@@ -83,7 +74,6 @@ $flight = $data->getAll();
                                 </td>
                             </tr>
                             <?php }?>
-
                         </tbody>
                     </table>
                 </div>

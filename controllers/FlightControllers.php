@@ -32,7 +32,7 @@ class FlightControllers
             $result = Flight::add($data);
             if ($result) {
                 session::set('success', 'Flight Added');
-                Redirect::to('dashboard');
+                // Redirect::to('dashFlight');
             } else {
                 echo $result;
             }
@@ -43,13 +43,12 @@ class FlightControllers
         if (isset($_POST['submit'])) {
             $data = array( //array associative
                 'id' => $_POST['id'],
-                'nom' => $_POST['nom'],
-                'prenom' => $_POST['prenom'],
-                'matricule' => $_POST['matricule'],
-                'poste' => $_POST['poste'],
-                'depart' => $_POST['depart'],
-                'date_emb' => $_POST['date_emb'],
-                'statut' => $_POST['statut']
+                'city_from' => $_POST['city_from'],
+                'city_to' => $_POST['city_to'],
+                'departure' => $_POST['departure'],
+                'price' => $_POST['price'],
+                'seats' => $_POST['seats'],
+                'airline_id' => $_POST['airline_id'],
             );
             $result = Flight::updateFlight($data);
             if ($result === 'ok') {
@@ -58,6 +57,16 @@ class FlightControllers
             } else {
                 echo $result;
             }
+        }
+    }
+
+    public function delete($id){
+        $result = Flight::delete($_POST['id']);
+        if ($result === 'ok') {
+            session::set('success', 'Flight Modiffied');
+            Redirect::to('dashFlight');
+        } else {
+            echo $result;
         }
     }
 }

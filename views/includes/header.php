@@ -7,11 +7,3 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@2.0.8/dist/full.css" rel="stylesheet" type="text/css" /> -->
   
-    <title>Employers Management</title>
-</head>
-<body>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-
-</body>
-</html>

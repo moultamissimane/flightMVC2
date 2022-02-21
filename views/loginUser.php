@@ -14,11 +14,11 @@
 <body>
     <div class="min-h-screen">
         <div class="flex">
-            <img src="../public/assets/images/plane-isometric-vinodesign.png" class="w-3/6 object-cover" alt="">
+            <img src="./views/public/assets/images/plane-isometric-vinodesign.png" class="w-3/6 object-cover" alt="">
             <div class="bg-white min-h-screen w-1/2 flex justify-center items-center">
                 <div>
                     <div class="">
-                        <img src="../public/assets/images/logo.png" class="flex" alt="" style="width:40%; height:25%;margin-left:4rem;">
+                        <img src="./views/public/assets/images/logo.png" class="flex" alt="" style="width:40%; height:25%;margin-left:4rem;">
                     </div>
                     <form>
                         <div>

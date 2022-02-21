@@ -1,14 +1,11 @@
 <?php   
-    require_once './views/includes/header.php';
     require_once './autoload.php';
     require_once './controllers/HomeControllers.php';
     // require_once './controllers/employersControllers.php';
     require_once './controllers/airlineControllers.php';
     require_once './controllers/flightControllers.php';
-
-    
     $home= new HomeController();
-    $pages=['home','dashboard','login', 'signup', 'addAireline', 'addFlight', 'homeUser', 'updateFlight'];
+    $pages=['home','dashFlight', 'dashUser','loginUser', 'signup', 'addAirline', 'addFlight', 'homeUser', 'updateFlight'];
     
     if(isset($_GET['page'])){
         if(in_array($_GET['page'], $pages)){
@@ -20,7 +17,22 @@
     }else{
         $home ->index('home');
     }
+    require_once './views/includes/header.php';
+
+    
+    
 ?>
+
+
+<title><?php echo $page ?></title>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
 <?php   
     require_once './views/includes/footer.php';
 ?>

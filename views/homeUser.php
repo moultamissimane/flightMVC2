@@ -1,271 +1,229 @@
+<?php ?>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<style>
+    html{
+        scroll-behavior: smooth;
+    }
+</style>
 
-<div>
-    <header class="bg-gray-800" x-data="{ isOpen: false }">
+<div class="relative">
+    <header class=" fixed top-0 w-screen left-0" x-data="{ isOpen: false }">
         <nav class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div class="flex items-center justify-between">
-                <a class="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-indigo-400"
-                    href="#">Brand</a>
-    
+                <a href="<?php echo BASE_URL; ?>homeUser" class="text-xl font-bold text-[#0aa4d8] transition-colors duration-300 transform md:text-2xl hover:text-[#71d4f6]" >Fly With Us</a>
+
                 <!-- Mobile menu button -->
                 <div @click="isOpen = !isOpen" class="flex md:hidden">
-                    <button type="button" class="text-gray-200 hover:text-gray-400 focus:outline-none focus:text-gray-400"
-                        aria-label="toggle menu">
+                    <button type="button" class="text-gray-200 hover:text-gray-400 focus:outline-none focus:text-gray-400" aria-label="toggle menu">
                         <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                            <path fill-rule="evenodd"
-                                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+                            <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
                             </path>
                         </svg>
                     </button>
                 </div>
             </div>
-    
+
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-            <div :class="isOpen ? 'flex' : 'hidden'"
-                class="flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400"
-                    href="#">Home</a>
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400"
-                    href="#">Templates</a>
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400"
-                    href="#">Price</a>
-                <a class="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400"
-                    href="#">Help</a>
-                <a class="px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-indigo-400"
-                    href="#">Get In Touch</a>
+            <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
+                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>homeUser">Home</a>
+                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Reservation</a>
+                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Price</a>
+                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a>
             </div>
         </nav>
-    
-        <section class="flex items-center justify-center" style="height: 500px;">
-            <div class="text-center">
-                <p class="text-xl font-medium tracking-wider text-gray-300">Lorem ipsum dolor</p>
-                <h2 class="mt-6 text-3xl font-bold text-white md:text-5xl">Lorem ipsum dolor sit amet, <br> consectetur
-                    adipiscing elit</h2>
-    
-                <div class="flex justify-center mt-8">
-                    <a class="px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform bg-indigo-600 rounded hover:bg-indigo-500"
-                        href="#">Get In Touch</a>
-                </div>
-            </div>
-        </section>
+
+
     </header>
-    
-    
+    <section style="background-image: url('./views/public/assets/images/loginbg.jpg');" class="flex h-screen items-center justify-center bg-cover bg-center">
+    </section>
+
+    <section class="bg-white">
+        <div>
+            <div class="container  mx-auto flex justify-center items-center  md:p-0">
+                <div class="border -mt-24 border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="">
+                            <select class="border p-2 rounded">
+                                <span>From</span>
+                                <option>srgsrf</option>
+                            </select>
+                        </div>
+                        <div class="pt-6 md:pt-0 md:pl-6">
+                            <select class="border p-2 rounded">
+                                <option>4 Passangers</option>
+                                <option>3 Passangers</option>
+                                <option>2 Passangers</option>
+                            </select>
+                        </div>
+                        <div class="pt-6 md:pt-0 md:pl-6">
+                            <select class="border p-2 rounded">
+                                <option>Economy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
+                            <div class="flex border rounded bg-gray-300 items-center p-2 ">
+                                <svg class="fill-current text-gray-800 mr-2 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path class="heroicon-ui" d="M12 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v2z" />
+                                </svg>
+                                <input type="text" placeholder="Enter text here..." class="bg-gray-300 max-w-full focus:outline-none text-gray-700" />
+                            </div>
+                            <div class="flex border rounded bg-gray-300 items-center p-2 ">
+                                <svg class="fill-current text-gray-800 mr-2 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path class="heroicon-ui" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zM5.68 7.1A7.96 7.96 0 0 0 4.06 11H5a1 1 0 0 1 0 2h-.94a7.95 7.95 0 0 0 1.32 3.5A9.96 9.96 0 0 1 11 14.05V9a1 1 0 0 1 2 0v5.05a9.96 9.96 0 0 1 5.62 2.45 7.95 7.95 0 0 0 1.32-3.5H19a1 1 0 0 1 0-2h.94a7.96 7.96 0 0 0-1.62-3.9l-.66.66a1 1 0 1 1-1.42-1.42l.67-.66A7.96 7.96 0 0 0 13 4.06V5a1 1 0 0 1-2 0v-.94c-1.46.18-2.8.76-3.9 1.62l.66.66a1 1 0 0 1-1.42 1.42l-.66-.67zM6.71 18a7.97 7.97 0 0 0 10.58 0 7.97 7.97 0 0 0-10.58 0z" />
+                                </svg>
+                                <input type="text" placeholder="Enter text here..." class="bg-gray-300 max-w-full focus:outline-none text-gray-700" />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
+                            <div class="flex border rounded bg-gray-300 items-center p-2 ">
+                                <svg class="fill-current text-gray-800 mr-2 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path class="heroicon-ui" d="M14 5.62l-4 2v10.76l4-2V5.62zm2 0v10.76l4 2V7.62l-4-2zm-8 2l-4-2v10.76l4 2V7.62zm7 10.5L9.45 20.9a1 1 0 0 1-.9 0l-6-3A1 1 0 0 1 2 17V4a1 1 0 0 1 1.45-.9L9 5.89l5.55-2.77a1 1 0 0 1 .9 0l6 3A1 1 0 0 1 22 7v13a1 1 0 0 1-1.45.89L15 18.12z" />
+                                </svg>
+                                <input type="text" placeholder="Enter text here..." class="bg-gray-300 max-w-full focus:outline-none text-gray-700" />
+                            </div>
+                            <div class="flex border rounded bg-gray-300 items-center p-2 ">
+                                <svg class="fill-current text-gray-800 mr-2 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path class="heroicon-ui" d="M13.04 14.69l1.07-2.14a1 1 0 0 1 1.2-.5l6 2A1 1 0 0 1 22 15v5a2 2 0 0 1-2 2h-2A16 16 0 0 1 2 6V4c0-1.1.9-2 2-2h5a1 1 0 0 1 .95.68l2 6a1 1 0 0 1-.5 1.21L9.3 10.96a10.05 10.05 0 0 0 3.73 3.73zM8.28 4H4v2a14 14 0 0 0 14 14h2v-4.28l-4.5-1.5-1.12 2.26a1 1 0 0 1-1.3.46 12.04 12.04 0 0 1-6.02-6.01 1 1 0 0 1 .46-1.3l2.26-1.14L8.28 4zm7.43 5.7a1 1 0 1 1-1.42-1.4L18.6 4H16a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V5.41l-4.3 4.3z" />
+                                </svg>
+                                <input type="text" placeholder="Enter text here..." class="bg-gray-300 max-w-full focus:outline-none text-gray-700" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center"><button class="p-2 border w-1/4 rounded-md bg-[#71d4f6] hover:text-[#71d4f6] text-white">Search</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="bg-white">
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold text-gray-800">Lorem ipsum dolor sit <br> amet, consectetur</h3>
-                    <p class="max-w-md mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <a href="#" class="block mt-8 text-indigo-700 underline">Experienced team</a>
-                </div>
-    
-                <div class="mt-8 md:mt-0 md:w-1/2">
                     <div class="flex items-center justify-center">
                         <div class="max-w-md">
-                            <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;"
-                                src="https://images.unsplash.com/photo-1618346136472-090de27fe8b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=673&q=80">
+                            <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;" src="https://travelingformiles.com/wp-content/uploads/2020/12/emirates-new-a380-premium-economy-741.jpg">
                         </div>
                     </div>
+                </div>
+
+                <div class="mt-8 md:mt-0 md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800">Reserve your preferred seat!</h3>
+                    <p class="max-w-md mt-4 text-gray-600">What will it be, window or aisle?
+                        Select your preferred seat prior to your flight and guarantee that
+                        it is reserved for you.You can add seats to your booking online through
+                        the below form or by contacting our call center,
+                        visiting our sales offices or travel partners.</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <section class="bg-white">
+        <div class="max-w-5xl px-6 py-16 mx-auto">
+            <div class="items-center md:flex md:space-x-6">
+                <div class="mt-8 md:mt-0 md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800">Enjoy stress-free travel!</h3>
+                    <p class="max-w-md mt-4 text-gray-600">For your extra comfort and complete peace of mind Fly Emirates recommends you take travel insurance, and is pleased to offer Tune Protect.
+                        Tune Protect covers you for:
+                        USD 50,000 for Accidental and Sickness Medical Reimbursement
+                        USD 20,000 for Emergency Medical Evacuation & Repatriation
+                        USD 3,000 for Travel Cancellation or Curtailment
+                        You can add Travel insurance to your booking online through below form or by contacting our call center, visiting our sales offices or travel partners.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="flex items-center justify-center">
+                        <div class="max-w-md">
+                            <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;" src="https://www.jetsetter.com//uploads/sites/7/2019/01/GettyImages-909268954-1-1380x690.jpg">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="bg-white">
         <div class="max-w-5xl px-6 py-16 mx-auto">
             <div class="items-center md:flex md:space-x-6">
                 <div class="md:w-1/2">
                     <div class="flex items-center justify-center">
                         <div class="max-w-md">
-                            <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;"
-                                src="https://images.unsplash.com/photo-1616874535244-73aea5daadb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
+                            <img class="object-cover object-center w-full rounded-md shadow" style="height: 500px;" src="https://s28477.pcdn.co/wp-content/uploads/2017/08/Emirates_8_web.jpg">
                         </div>
                     </div>
                 </div>
-    
                 <div class="mt-8 md:mt-0 md:w-1/2">
-                    <h3 class="text-2xl font-semibold text-gray-800">Lorem ipsum dolor sit <br> amet, consectetur</h3>
-                    <p class="max-w-md mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <a href="#" class="block mt-8 text-indigo-700 underline">Experienced team</a>
+                    <h3 class="text-2xl font-semibold text-gray-800">Pre-select your preferred meal!</h3>
+                    <p class="max-w-md mt-4 text-gray-600">Enjoy a more personalized journey with Fly Emirates. 
+                        Select the meal of your choice offered by our Sky Café menu prior to your flight. 
+                        While booking online, you can choose from a wide selection of sumptuous onboard food and beverages
+                         at extremely affordable prices. You can pre-select your meals instantly online through below form
+                          or by contacting our call center, visiting our sales offices or travel partners.</p>
                 </div>
+
             </div>
         </div>
     </section>
-    
-    <section class="bg-white">
-        <div class="max-w-5xl px-6 py-16 mx-auto">
-            <h2 class="text-3xl font-semibold text-gray-800">Lorem ipsum dolor sit amet, <br> consectetur adipiscing</h2>
-            <p class="max-w-lg mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-            <div class="grid gap-8 mt-10 md:mt-20 md:grid-cols-2">
-                <div class="flex space-x-4">
-                    <svg class="w-6 h-6 text-gray-500" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M47.6268 23.7062C48.2466 24.4484 48.2466 25.5277 47.6268 26.2699L44.4812 30.0372C43.803 30.8493 43.4742 31.8971 43.5669 32.9512L44.0044 37.9287C44.0912 38.9165 43.4411 39.8188 42.4765 40.0491L38.0619 41.1031C36.9808 41.3612 36.0559 42.0575 35.5089 43.025L33.2053 47.099C32.6961 47.9995 31.5844 48.3631 30.6415 47.9375L26.6498 46.1358C25.6003 45.6621 24.3976 45.6636 23.3493 46.14L19.3597 47.9531C18.4161 48.3819 17.3014 48.0189 16.7912 47.1168L14.4911 43.0489C13.9441 42.0814 13.0192 41.3851 11.9381 41.127L7.52286 40.0728C6.55849 39.8426 5.90838 38.9406 5.99496 37.9529L6.43346 32.9505C6.52583 31.8968 6.19706 30.8494 5.5191 30.0375L2.37029 26.2665C1.75138 25.5253 1.75043 24.4477 2.36803 23.7054L5.52362 19.9127C6.1988 19.1012 6.52582 18.0557 6.43339 17.0041L5.99624 12.0308C5.90922 11.0408 6.56225 10.1372 7.52946 9.90904L11.9298 8.87123C13.0153 8.61522 13.9446 7.91765 14.4935 6.94684L16.7947 2.87709C17.3039 1.97664 18.4156 1.61302 19.3585 2.03858L23.3544 3.8422C24.4007 4.31444 25.5993 4.31444 26.6456 3.8422L30.6415 2.03858C31.5844 1.61301 32.6961 1.97663 33.2053 2.87709L35.5089 6.95112C36.0559 7.9186 36.9808 8.61486 38.0619 8.87297L42.4765 9.92701C43.4411 10.1573 44.0912 11.0596 44.0044 12.0474L43.5669 17.0249C43.4742 18.079 43.803 19.1268 44.4812 19.939L47.6268 23.7062ZM25 37.9326C26.8075 37.9326 28.2727 36.4674 28.2727 34.6599V34.4275C28.2727 32.6201 26.8075 31.1548 25 31.1548C23.1925 31.1548 21.7273 32.6201 21.7273 34.4275V34.6599C21.7273 36.4674 23.1925 37.9326 25 37.9326ZM25 28.377C26.8075 28.377 28.2727 26.9117 28.2727 25.1042V15.3162C28.2727 13.5087 26.8075 12.0435 25 12.0435C23.1925 12.0435 21.7273 13.5087 21.7273 15.3162V25.1042C21.7273 26.9117 23.1925 28.377 25 28.377Z"
-                            stroke="currentColor" stroke-width="2" />
-                    </svg>
-    
-                    <div>
-                        <h4 class="text-xl font-medium text-gray-800">Design concept</h4>
-                        <p class="max-w-lg mt-4 text-gray-600">Vitae nulla nunc euismod vel nunc euismod velpretium tellus
-                            accumsan nulla nunc euismod ve semper.</p>
-                    </div>
-                </div>
-    
-                <div class="flex space-x-4">
-                    <svg class="w-6 h-6 text-gray-500" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M1 25C1 11.8023 11.8023 1 25 1C38.1977 1 49 11.8023 49 25C49 38.1977 38.1977 49 25 49C11.8023 49 1 38.1977 1 25ZM33.36 35.3573C34.7228 36.1959 36.5074 35.771 37.346 34.4082C38.1913 33.0346 37.7522 31.2351 36.3692 30.4053L28.221 25.5164C27.6186 25.155 27.25 24.504 27.25 23.8014V14.375C27.25 12.7872 25.9628 11.5 24.375 11.5C22.7872 11.5 21.5 12.7872 21.5 14.375V25.8236C21.5 27.2127 22.2206 28.5023 23.4036 29.2302L33.36 35.3573Z"
-                            stroke="currentColor" stroke-width="2" />
-                    </svg>
-    
-                    <div>
-                        <h4 class="text-xl font-medium text-gray-800">Developing websites</h4>
-                        <p class="max-w-lg mt-4 text-gray-600">Vitae nulla euismod velpretium tellus accumsan nulla nunc
-                            euismod ve semper. Vitae nulla euismod velpretium tellus
-                            accumsan nulla nunc euismod ve semper. Vitae nulla euismod velpretium tellus accumsan nulla nunc
-                            euismod ve semper.</p>
-                    </div>
-                </div>
+
+
+<!-- Contact Form -->
+<div class="mt-8 mx-4">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+          <div class="p-6 mr-2 bg-[#0aa4d8]  sm:rounded-lg">
+            <h1 class="text-4xl sm:text-5xl text-white  font-extrabold tracking-tight">Get in touch</h1>
+            <p class="text-normal text-lg sm:text-2xl font-medium text-white  mt-2">Fill in the form to submit any query</p>
+
+            <div class="flex items-center mt-8 text-gray-600 ">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <div class="ml-4 text-md text-white tracking-wide font-semibold w-40">Dhaka, Street, State, Postal Code</div>
             </div>
+
+            <div class="flex items-center mt-4 text-gray-600 ">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <div class="ml-4 text-md text-white tracking-wide font-semibold w-40">+880 1234567890</div>
+            </div>
+
+            <div class="flex items-center mt-4 text-gray-600 ">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <div class="ml-4 text-md text-white tracking-wide font-semibold w-40">info@demo.com</div>
+            </div>
+          </div>
+          <form id="contact" class="p-6 flex flex-col justify-center">
+            <div class="flex flex-col">
+              <label for="name" class="hidden">Full Name</label>
+              <input type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-[#0aa4d8] text-black  font-semibold focus:border-blue-500 focus:outline-none" />
+            </div>
+
+            <div class="flex flex-col mt-2">
+              <label for="email" class="hidden">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-[#0aa4d8] border-[#0aa4d8] text-black  font-semibold focus:border-blue-500 focus:outline-none" />
+            </div>
+
+            <div class="flex flex-col mt-2">
+              <label for="tel" class="hidden">Number</label>
+              <input type="tel" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-[#0aa4d8] border-[#0aa4d8] text-black  font-semibold focus:border-blue-500 focus:outline-none" />
+            </div>
+
+            <button type="submit" class="md:w-32 bg-[#0aa4d8]  text-white  font-bold py-3 px-6 rounded-lg mt-4 hover:bg-blue-500 ">Submit</button>
+          </form>
         </div>
-    </section>
+      </div>
+      <!-- ./Contact Form -->
+
     
-    <section class="bg-white">
-        <div class="max-w-5xl px-6 py-16 mx-auto">
-            <div class="px-8 py-12 bg-gray-800 rounded-md md:px-20 md:flex md:items-center md:justify-between">
-                <div>
-                    <h3 class="text-2xl font-semibold text-white">Lorem ipsum dolor sit amet</h3>
-                    <p class="max-w-md mt-4 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing Ac aliquam ac
-                        volutpat, viverra magna risus aliquam massa.</p>
-                </div>
-    
-                <a class="block px-8 py-2 mt-6 text-lg font-medium text-center text-white transition-colors duration-300 transform bg-indigo-600 rounded md:mt-0 hover:bg-indigo-500"
-                    href="#">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="bg-white">
-        <div class="max-w-5xl px-6 py-16 mx-auto">
-            <div class="md:flex md:justify-between">
-                <h2 class="text-3xl font-semibold text-gray-800">Lorem ipsum dolor sit amet, consectetur <br> adipiscing
-                    elit, sed do eiusmod</h2>
-                <a href="#" class="block mt-6 text-indigo-700 underline md:mt-0">Experienced team</a>
-            </div>
-    
-            <div class="grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
-                <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
-                    <h2 class="text-xl font-medium text-gray-800">Audio</h2>
-                    <p class="max-w-md mt-4 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing Ac aliquam ac
-                        volutpat, viverra magna risus aliquam massa.</p>
-                </div>
-    
-                <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
-                    <h2 class="text-xl font-medium text-gray-800">Audio</h2>
-                    <p class="max-w-md mt-4 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing Ac aliquam ac
-                        volutpat,
-                        viverra magna risus aliquam massa.</p>
-                </div>
-    
-                <div class="px-6 py-8 overflow-hidden bg-white rounded-md shadow-md">
-                    <h2 class="text-xl font-medium text-gray-800">Audio</h2>
-                    <p class="max-w-md mt-4 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing Ac aliquam ac
-                        volutpat,
-                        viverra magna risus aliquam massa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="bg-white">
-        <div class="max-w-5xl px-6 py-16 mx-auto text-center">
-            <h2 class="text-3xl font-semibold text-gray-800">Lorem ipsum dolor sit amet, <br> consectetur adipiscing</h2>
-            <p class="max-w-lg mx-auto mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-    
-            <img class="object-cover object-center w-full mt-16 rounded-md shadow h-80"
-                src="https://images.unsplash.com/photo-1600069226367-412873fb0637?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
-        </div>
-    </section>
-    
-    <section class="bg-white">
-        <div class="max-w-5xl px-6 py-16 mx-auto space-y-8 md:flex md:items-center md:space-y-0">
-            <div class="md:w-2/3">
-                <div class="hidden md:flex md:items-center md:space-x-10">
-                    <img class="object-cover object-center rounded-md shadow w-72 h-72"
-                        src="https://images.unsplash.com/photo-1614030126544-b79b92e29e98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-                    <img class="object-cover object-center w-64 rounded-md shadow h-96"
-                        src="https://images.unsplash.com/photo-1618506469810-282bef2b30b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
-                </div>
-                <h2 class="text-3xl font-semibold text-gray-800 md:mt-6">Lorem ipsum dolor </h2>
-                <p class="max-w-lg mt-4 text-gray-600">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse illum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia
-                    deserunt mollit anim id est laborum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                    non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                </p>
-            </div>
-            <div class="md:w-1/3">
-                <img class="object-cover object-center w-full rounded-md shadow" style="height: 700px;"
-                    src="https://images.unsplash.com/photo-1593352216840-1aee13f45818?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-            </div>
-        </div>
-    </section>
-    
-    <section class="bg-white">
-        <div class="max-w-5xl px-6 py-16 mx-auto text-center">
-            <h2 class="text-3xl font-semibold text-gray-800">Our Leadership</h2>
-            <p class="max-w-lg mx-auto mt-4 text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-    
-            <div class="grid gap-8 mt-6 md:grid-cols-2 lg:grid-cols-4">
-                <div>
-                    <img class="object-cover object-center w-full h-64 rounded-md shadow"
-                        src="https://images.unsplash.com/photo-1614030126544-b79b92e29e98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-                    <h3 class="mt-2 font-medium text-gray-700">John Doe</h3>
-                    <p class="text-sm text-gray-600">CEO</p>
-                </div>
-    
-                <div>
-                    <img class="object-cover object-center w-full h-64 rounded-md shadow"
-                        src="https://images.unsplash.com/photo-1614030126544-b79b92e29e98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-                    <h3 class="mt-2 font-medium text-gray-700">John Doe</h3>
-                    <p class="text-sm text-gray-600">CEO</p>
-                </div>
-    
-                <div>
-                    <img class="object-cover object-center w-full h-64 rounded-md shadow"
-                        src="https://images.unsplash.com/photo-1614030126544-b79b92e29e98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-                    <h3 class="mt-2 font-medium text-gray-700">John Doe</h3>
-                    <p class="text-sm text-gray-600">CEO</p>
-                </div>
-    
-                <div>
-                    <img class="object-cover object-center w-full h-64 rounded-md shadow"
-                        src="https://images.unsplash.com/photo-1614030126544-b79b92e29e98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80">
-                    <h3 class="mt-2 font-medium text-gray-700">John Doe</h3>
-                    <p class="text-sm text-gray-600">CEO</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer class="border-t">
+
+    <footer class="border-t mt-6">
         <div class="container flex items-center justify-between px-6 py-8 mx-auto">
-            <p class="text-gray-500">© 2019-2021 All Rights Reserved.</p>
+            <p class="text-gray-500">© 2022-2023 All Rights Reserved.</p>
             <p class="font-medium text-gray-700">Terms of Service</p>
         </div>
     </footer>
