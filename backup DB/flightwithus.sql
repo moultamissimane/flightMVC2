@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 19 fév. 2022 à 14:37
+-- Généré le : mar. 22 fév. 2022 à 09:43
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.1
 
@@ -62,7 +62,9 @@ CREATE TABLE `airline` (
 INSERT INTO `airline` (`id`, `name`, `abreviation`, `src`, `city`) VALUES
 (31, 'Qatar Airways', 'QR123', 'https://logos-world.net/wp-content/uploads/2020/03/Qatar-Airways-Logo-700x394.png', 'Casablanca'),
 (32, 'Fly Emirates', 'EK752', 'https://airlinecodes.info/airlinelogos/EK.svg', 'Marrakech'),
-(33, 'Turkish Airlines', 'TK182', 'https://logowik.com/content/uploads/images/thy-turkish-airlines-new2277.jpg', 'Istanbul');
+(33, 'Turkish Airlines', 'TK182', 'https://logowik.com/content/uploads/images/thy-turkish-airlines-new2277.jpg', 'Istanbul'),
+(34, 'Air Arabia', 'ARA56', 'https://png.pngitem.com/pimgs/s/3-30184_air-arabia-logo-png-transparent-png.png', 'Agadir'),
+(37, 'Royal Air Maroc', 'RAM14', 'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/8c373b6dcf4461c903eb293aa064901c', 'Casablanca');
 
 -- --------------------------------------------------------
 
@@ -75,6 +77,7 @@ CREATE TABLE `flight` (
   `city_from` text NOT NULL,
   `city_to` text NOT NULL,
   `departure` date NOT NULL,
+  `arrive` date NOT NULL,
   `airline_id` int(11) NOT NULL,
   `price` float NOT NULL,
   `seats` int(11) NOT NULL,
@@ -86,9 +89,10 @@ CREATE TABLE `flight` (
 -- Déchargement des données de la table `flight`
 --
 
-INSERT INTO `flight` (`id`, `city_from`, `city_to`, `departure`, `airline_id`, `price`, `seats`, `created_at`, `modified_at`) VALUES
-(9, 'Casablanca', 'Paris', '0000-00-00', 31, 800, 46, '2022-02-17 23:22:33', '2022-02-17 23:22:33'),
-(11, 'Casablanca', 'Tokyo', '0000-00-00', 33, 500, 39, '2022-02-18 15:41:15', '2022-02-18 15:41:15');
+INSERT INTO `flight` (`id`, `city_from`, `city_to`, `departure`, `arrive`, `airline_id`, `price`, `seats`, `created_at`, `modified_at`) VALUES
+(16, 'Marakech', 'Madrid', '2022-02-20', '2022-02-26', 34, 500, 23, '2022-02-21 09:46:23', '2022-02-21 09:46:23'),
+(17, 'Marakech', 'Madrid', '2022-02-20', '0000-00-00', 34, 500, 23, '2022-02-21 09:56:06', '2022-02-21 09:56:06'),
+(19, 'Casablanca', 'Madrid', '2022-02-14', '2022-02-16', 37, 500, 21, '2022-02-21 21:18:48', '2022-02-21 21:18:48');
 
 -- --------------------------------------------------------
 
@@ -187,13 +191,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `airline`
 --
 ALTER TABLE `airline`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `flight`
 --
 ALTER TABLE `flight`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `passenger`

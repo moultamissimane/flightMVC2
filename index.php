@@ -5,7 +5,7 @@
     require_once './controllers/airlineControllers.php';
     require_once './controllers/flightControllers.php';
     $home= new HomeController();
-    $pages=['home','dashFlight', 'dashUser','loginUser', 'signup', 'addAirline', 'addFlight', 'homeUser', 'updateFlight'];
+    $pages=['home','dashFlight', 'dashUser','loginUser', 'signup', 'addAirline', 'addFlight', 'homeUser', 'loginAdmin' , 'updateFlight'];
     
     if(isset($_GET['page'])){
         if(in_array($_GET['page'], $pages)){

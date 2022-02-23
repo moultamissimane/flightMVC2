@@ -1,8 +1,8 @@
 <?php
 
 if(isset($_POST['submit'])){
-    $loginUser = new UsersControllers();
-    $loginUser->auth();
+    $loginAdmin = new UsersControllers();
+    $loginAdmin->adminAuth();
 }
 
 ?>
@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
                     </div>
                     <form method="POST">
                         <div>
-                            <span class="text-lg text-gray-900">Welcome back</span>
+                            <span class="text-lg text-gray-900">Welcome Master</span>
                             <h1 class="text-2xl font-bold">Login to your account</h1>
                         </div>
                         <div class="my-3">
@@ -37,10 +37,6 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="">
                             <button name="submit" class="mt-4 mb-3 w-full bg-[#71d4f6] hover:bg-[#0aa4d8] text-white py-2 rounded-md transition duration-100">Login now</button>
-                            <div class="flex  space-x-2 justify-center items-end bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
-                                <img class=" h-5 cursor-pointer" src="https://i.imgur.com/arC60SB.png" alt="">
-                                <button>Or sign-in with google</button>
-                            </div>
                         </div>
                     </form>
                     <p class="mt-8"> Dont have an account? <span class="cursor-pointer text-sm text-blue-600"> Join now</span></p>

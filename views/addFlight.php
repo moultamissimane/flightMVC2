@@ -6,6 +6,7 @@ $airlines = AirlineControllers::getAll();
 if (isset($_POST['submit'])) {
     $newFlight = new FlightControllers();
     $result = $newFlight->add();
+
 }
 ?>
 
@@ -17,16 +18,20 @@ if (isset($_POST['submit'])) {
         <div class="bg-gray-50 flex-grow p-6">
             <form method="POST" id="form">
                 <div class="mb-4">
-                    <label for="full_name" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City From</label>
+                    <label for="city_from" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City From</label>
                     <input type="text" name="city_from" id="city_from" placeholder="Casablanca" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                 </div>
                 <div class="mb-4">
-                    <label for="full_name" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City To</label>
+                    <label for="city_to" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City To</label>
                     <input type="text" name="city_to" id="city_to" placeholder="Paris" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                 </div>
                 <div class="mb-4">
-                    <label for="full_name" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Departure</label>
+                    <label for="departure" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Departure</label>
                     <input type="date" name="departure" id="departure" placeholder="Casablanca" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                </div>
+                <div class="mb-4">
+                    <label for="arrive" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Arrive</label>
+                    <input type="date" name="arrive" id="arrive"  required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                 </div>
                 <div class="mb-4">
                     <label for="full_name" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Price</label>
@@ -44,7 +49,7 @@ if (isset($_POST['submit'])) {
                     </select>
                 </div> -->
                 <div class="mb-4">
-                    <label for="full_name" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Airline_id</label>
+                    <label for="airline_id" style="font-family: poppins;" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Airline_id</label>
                     <select name="airline_id" id="airline_id" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
                         <?php foreach ($airlines as $a) { ?>
                             <option value="<?php echo $a['id']; ?>"><?php echo $a['name']; ?></option>

@@ -3,10 +3,9 @@
 $data = new FlightControllers();
 $flight = $data->getAll();
 
-if(isset($_POST['delete']) and isset($_POST['id'])){
+if (isset($_POST['delete']) and isset($_POST['id'])) {
   $data->delete($_POST['id']);
 }
-
 
 ?>
 
@@ -170,22 +169,21 @@ if(isset($_POST['delete']) and isset($_POST['id'])){
 </style>
 <div x-data="setup()" :class="{ 'dark': isDark }">
   <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-
     <!-- Header -->
     <div class="fixed w-full flex items-center justify-between h-14 text-white z-10">
       <div class="flex items-center justify-start md:justify-center pl-3 w-14 md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
         <img class="w-7 h-7 md:w-10 md:h-10 mr-2 rounded-md overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-        <span class="hidden md:block">ADMIN</span>
+        <span class="hidden md:block"><?php echo $_SESSION['full_name'] ?></span>
       </div>
       <div class="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
-        <div class="bg-white rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm border border-gray-200">
+        <form method="POST" class="bg-white rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm border border-gray-200">
           <button class="outline-none focus:outline-none">
             <svg class="w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
           </button>
-          <input type="search" name="" id="" placeholder="Search" class="w-full pl-3 text-sm text-black outline-none focus:outline-none bg-transparent" />
-        </div>
+          <input type="search" name="search" id="search" placeholder="Search" class="w-full pl-3 text-sm text-black outline-none focus:outline-none bg-transparent" />
+        </form>
         <ul class="flex items-center">
           <li>
             <button aria-hidden="true" @click="toggleTheme" class="group p-2 transition-colors duration-200 rounded-full shadow-md bg-blue-200 hover:bg-blue-200 dark:bg-gray-50 dark:hover:bg-gray-200 text-gray-900 focus:outline-none">
@@ -223,6 +221,16 @@ if(isset($_POST['delete']) and isset($_POST['id'])){
             <div class="flex flex-row items-center h-8">
               <div class="text-sm font-light tracking-wide text-gray-400 uppercase">Main</div>
             </div>
+          </li>
+          <li>
+            <a href="<?php echo BASE_URL; ?>dashboard" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+              <span class="inline-flex justify-center items-center ml-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+              </span>
+              <span class="ml-2 text-sm tracking-wide truncate">Dashboard</span>
+            </a>
           </li>
           <li>
             <a href="<?php echo BASE_URL; ?>dashFlight" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
@@ -314,6 +322,17 @@ if(isset($_POST['delete']) and isset($_POST['id'])){
             <p>Sales</p>
           </div>
         </div>
+        <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="text-right">
+            <p class="text-2xl">$75,257</p>
+            <p>Balances</p>
+          </div>
+        </div>
       </div>
       <!-- ./Statistics Cards -->
 
@@ -335,44 +354,47 @@ if(isset($_POST['delete']) and isset($_POST['id'])){
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">City From</th>
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">City To</th>
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Departure</th>
+                    <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">arrive</th>
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Prices</th>
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Seats</th>
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Actions</th>
                   </tr>
                 </thead>
-                <tbody>
 
+                <tbody>
                   <?php foreach ($flight as $f) { ?>
                     <tr class="text-gray-700 dark:text-gray-100">
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><?php echo $f['id']; ?></td>
                       <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"><?php echo $f['city_from']; ?></th>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><?php echo $f['city_to']; ?></td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><?php echo $f['departure']; ?></td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><?php echo $f['arrive']; ?></td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><?php echo $f['price']; ?>$</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"><?php echo $f['seats']; ?></td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-
                         <div class="flex item-center justify-center">
-                          <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" onclick="closePopup()">
+                          <div class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                           </div>
-                          <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                            </svg>
-                          </div>
-                          <button onclick="handlePopup(<?php echo $f['id']?>)" class="w-4 cursor-pointer mr-2 transform hover:text-purple-500 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <form method="POST" action="<?php echo BASE_URL; ?>updateFlight">
+                            <input class="hidden" type="text" name="id" value="<?php echo $f['id'] ?>">
+                            <button name="update" class="w-4 cursor-pointer mr-2 transform hover:text-purple-500 hover:scale-110">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                              </svg>
+                            </button>
+                          </form>
+                          <button onclick="handlePopup(<?php echo $f['id'] ?>)" class="w-4 cursor-pointer mr-2 transform hover:text-purple-500 hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" onclick="closePopup()">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                           </button>
                         </div>
                       </td>
                     </tr>
-
                   <?php } ?>
                 </tbody>
               </table>
@@ -381,15 +403,14 @@ if(isset($_POST['delete']) and isset($_POST['id'])){
         </div>
         <!-- ./Social Traffic -->
       </div>
-
-     
     </div>
   </div>
 </div>
+
 <!-- popup -->
-<div class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover hidden" id="modal-id">
+<div onclick="handlePopup()" class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover hidden" id="modal-id">
   <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
-  <div class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+  <div onclick="stopPropagation(event)" class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
     <!--content-->
     <div class="">
       <!--body-->
@@ -404,12 +425,11 @@ if(isset($_POST['delete']) and isset($_POST['id'])){
           <p class="text-sm text-gray-500 px-8">Do you really want to delete this flight reservation?
             This process cannot be undone</p>
       </div>
-      <!--footer-->
-      <div class="p-3 flex mt-2 text-center">
-        <button onclick="handlePopup()" class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
-          Cancel
-        </button>
-        <form class="w-fit" method="POST">
+      <div class="p-3 text-center space-x-4 md:block">
+        <form class="w-full justify-center" method="POST">
+          <button onclick="handlePopup()" class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+            Cancel
+          </button>
           <input id="popup_input" class="hidden" type="text" name="id">
           <button name="delete" class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Delete</button>
         </form>
@@ -422,8 +442,12 @@ if(isset($_POST['delete']) and isset($_POST['id'])){
 <script>
   const handlePopup = (id) => {
     document.getElementById('modal-id').classList.toggle('hidden');
-    document.getElementById('popup_input').value= id;
+    document.getElementById('popup_input').value = id;
 
+  }
+
+  const stopPropagation = (event) => {
+    event.stopPropagation();
   }
 
 
