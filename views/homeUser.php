@@ -16,7 +16,6 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
         <nav class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div class="flex items-center justify-between">
                 <a href="<?php echo BASE_URL; ?>homeUser" class="text-xl font-bold text-[#0aa4d8] transition-colors duration-300 transform md:text-2xl hover:text-[#71d4f6]">Fly With Us</a>
-
                 <!-- Mobile menu button -->
                 <div @click="isOpen = !isOpen" class="flex md:hidden">
                     <button type="button" class="text-gray-200 hover:text-gray-400 focus:outline-none focus:text-gray-400" aria-label="toggle menu">
@@ -33,24 +32,25 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>homeUser">Home</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Reservation</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Price</a>
-                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a>
+                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a> 
+            <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-md overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
+            <span class="hidden ml-10 md:block"><?php echo 'qdf' ?></span>
             </div>
         </nav>
-
-
     </header>
+
+    
     <section style="background-image: url('./views/public/assets/images/loginbg.jpg');" class="flex h-screen items-center justify-center bg-cover bg-center">
     </section>
 
     <section class="bg-white">
         <div>
             <div class="container  mx-auto flex justify-center items-center  md:p-0">
-                <div class="border -mt-24 border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg">
+                <div class="border -mt-40 border-gray-300 p-8 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg">
                     <div class="flex flex-col md:flex-row">
                         <div class="">
                             <select class="border p-2 rounded">
-                                <span>From</span>
-                                <option>srgsrf</option>
+                                <option>hi</option>
                             </select>
                         </div>
                         <div class="pt-6 md:pt-0 md:pl-6">
@@ -72,7 +72,7 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                                 <select type="text" class="bg-gray-300 max-w-full focus:outline-none text-gray-700">
                                     <?php foreach ($cities as $c) { ?>
                                         <option class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-teal-600 hover:text-teal-100 hover:border-teal-600" value="<?php echo $c; ?>"><?php echo $c; ?></option>
-                                        <?php } ?>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <div class="flex border rounded bg-gray-300 items-center p-2 ">
@@ -101,7 +101,6 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-8 md:mt-0 md:w-1/2">
                     <h3 class="text-2xl font-semibold text-gray-800">Reserve your preferred seat!</h3>
                     <p class="max-w-md mt-4 text-gray-600">What will it be, window or aisle?
@@ -156,19 +155,17 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                         at extremely affordable prices. You can pre-select your meals instantly online through below form
                         or by contacting our call center, visiting our sales offices or travel partners.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
 
-    <!-- Contact Form -->
+<!-- Contact Form -->
     <div class="mt-8 mx-4">
         <div class="grid grid-cols-1 md:grid-cols-2">
             <div class="p-6 mr-2 bg-[#0aa4d8]  sm:rounded-lg">
                 <h1 class="text-4xl sm:text-5xl text-white  font-extrabold tracking-tight">Get in touch</h1>
                 <p class="text-normal text-lg sm:text-2xl font-medium text-white  mt-2">Fill in the form to submit any query</p>
-
                 <div class="flex items-center mt-8 text-gray-600 ">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -176,14 +173,12 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                     </svg>
                     <div class="ml-4 text-md text-white tracking-wide font-semibold w-40">Dhaka, Street, State, Postal Code</div>
                 </div>
-
                 <div class="flex items-center mt-4 text-gray-600 ">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <div class="ml-4 text-md text-white tracking-wide font-semibold w-40">+880 1234567890</div>
                 </div>
-
                 <div class="flex items-center mt-4 text-gray-600 ">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -196,17 +191,15 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                     <label for="name" class="hidden">Full Name</label>
                     <input type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 placeholder-black rounded-lg bg-white border border-[#0aa4d8] text-black  font-semibold focus:border-blue-500 focus:outline-none" />
                 </div>
-
                 <div class="flex flex-col mt-2">
                     <label for="email" class="hidden">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 placeholder-black rounded-lg bg-white  border border-[#0aa4d8] border-[#0aa4d8] text-black  font-semibold focus:border-blue-500 focus:outline-none" />
+                    <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 placeholder-black rounded-lg bg-white  border border-[#0aa4d8]  text-black  font-semibold focus:border-blue-500 focus:outline-none" />
                 </div>
 
                 <div class="flex flex-col mt-2">
                     <label for="tel" class="hidden">Number</label>
-                    <input type="tel" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 placeholder-black rounded-lg bg-white  border border-[#0aa4d8] border-[#0aa4d8] text-black  font-semibold focus:border-blue-500 focus:outline-none" />
+                    <input type="tel" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 placeholder-black rounded-lg bg-white  border border-[#0aa4d8] text-black  font-semibold focus:border-blue-500 focus:outline-none" />
                 </div>
-
                 <button type="submit" class="md:w-32 bg-[#0aa4d8]  text-white  font-bold py-3 px-6 rounded-lg mt-4 hover:bg-blue-500 ">Submit</button>
             </form>
         </div>

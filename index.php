@@ -5,7 +5,7 @@
     require_once './controllers/airlineControllers.php';
     require_once './controllers/flightControllers.php';
     $home= new HomeController();
-    $pages=['home','dashFlight', 'dashUser','loginUser', 'signup', 'addAirline', 'addFlight', 'homeUser', 'loginAdmin' , 'updateFlight'];
+    $pages=['dashFlight', 'dashUser','loginUser','logout', 'signup', 'addAirline', 'addFlight', 'homeUser', 'loginAdmin' , 'updateFlight', 'reservation'];
     
     if(isset($_GET['page'])){
         if(in_array($_GET['page'], $pages)){
@@ -15,7 +15,7 @@
             include('views/includes/404.php');
         }
     }else{
-        $home ->index('home');
+        $home ->index('homeUser');
     }
     require_once './views/includes/header.php';
 

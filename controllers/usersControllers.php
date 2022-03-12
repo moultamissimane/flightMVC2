@@ -32,12 +32,13 @@ class UsersControllers
             $result = User::Adminlogin($data);
             if ($_POST['password'] === $result->password) {
                 $_SESSION['logged'] = true;
+                $_SESSION['isAdmin'] = true;
                 $_SESSION['full_name'] = $result->full_name;
                 Redirect::to('dashUser');
             
             } else {
                 Session::set('error', 'name or password incorrect');
-                Redirect::to('loginUser');
+                Redirect::to('loginAdmin');
 
             }
         }
@@ -55,18 +56,22 @@ class UsersControllers
                 $options
             );
             $data = array(
-                'fullname' => $_POST['fullname'],
+                'full_name' => $_POST['full_name'],
                 'date_of_birth' => $_POST['date_of_birth'],
                 'email' => $_POST['email'],
                 'password' => $password,
             );
             $result = User::createUser($data);
             if ($result === 'ok') {
-                Session::set('success', 'accompte created');
-                // Redirect::to('loginUser');
+                Session::set('success', 'account created');
+                Redirect::to('loginUser');
             } else {
                 echo $result;
             }
         }
+    }
+    
+    static public function logout(){
+        session_destroy();
     }
 }
