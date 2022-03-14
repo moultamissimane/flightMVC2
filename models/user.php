@@ -37,15 +37,21 @@ class user
 
     static public function createUser($data)
     {
-        $stmt = DB::connect()->prepare('INSERT INTO users (full_name, username, email, password) VALUES (:full_name, :username, :password, :email,)');
-        $stmt->bindParam(':full_name', $data['full_name']);
-        $stmt->bindParam(':date_of_birth', $data['username']);
-        $stmt->bindParam(':email', $data['email']);
-        $stmt->bindParam(':password', $data['password']);
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return 'error';
+        try {
+            $stmt = DB::connect()->prepare('INSERT INTO user (full_name, date_of_birth, email, password) VALUES (:full_name, :date_of_birth, :email, :password)');
+            $stmt->bindParam(':full_name', $data['full_name']);
+            $stmt->bindParam(':date_of_birth', $data['date_of_birth']);
+            $stmt->bindParam(':email', $data['email']);
+            $stmt->bindParam(':password', $data['password']);
+            $res = $stmt->execute();
+            if ($res) {
+                $stmt = DB::connect()->prepare('SELECT * from user group by id desc limit 1');
+                $stmt->execute();
+                $user = $stmt->fetch(PDO::FETCH_OBJ);
+                return $user;
+            }
+        } catch (PDOException $ex) {
+            echo 'error' . $ex->getMessage();
         }
         $stmt = null;
     }

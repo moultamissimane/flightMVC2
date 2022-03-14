@@ -1,11 +1,11 @@
 <?php   
     require_once './autoload.php';
     require_once './controllers/HomeControllers.php';
-    // require_once './controllers/employersControllers.php';
     require_once './controllers/airlineControllers.php';
     require_once './controllers/flightControllers.php';
+    require_once './controllers/ReservationControllers.php';
     $home= new HomeController();
-    $pages=['dashFlight', 'dashUser','loginUser','logout', 'signup', 'addAirline', 'addFlight', 'homeUser', 'loginAdmin' , 'updateFlight', 'reservation'];
+    $pages=['dashFlight', 'dashUser', 'confirmation' ,'ticket' ,'loginUser','logout', 'signup', 'addAirline', 'addFlight', 'homeUser', 'loginAdmin' , 'updateFlight', 'reservation'];
     
     if(isset($_GET['page'])){
         if(in_array($_GET['page'], $pages)){

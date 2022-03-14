@@ -1,126 +1,60 @@
 <?php
 
 class Reservation{
-    static public function getAll(){
-        $stmt = DB::connect()->prepare('SELECT * FROM reservation');
-        $stmt->execute();
-        return $stmt->fetchAll();
-        $stmt = null;
-    }
 
-    static public function getVol($data){
-        $id = $data['id'];
-        try{
-            $query = 'SELECT * FROM reservation WHERE id=:id';
-            $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array(":id" => $id));
-            $vol = $stmt->fetch(PDO::FETCH_OBJ);
-            return $vol;
-        }catch(PDOException $ex){
-            echo 'error'.$ex->getMessage();
-        }
-    }
-
-    static public function add($data){
-        $stmt = DB::connect()->prepare('INSERT INTO passenger (user_id, flight_id, passenger_id) VALUES (:user_id, :flight_id, :passenger_id)');
-        $stmt->bindParam(':user_id',$data['user_id']);
-        $stmt->bindParam(':destination',$data['destination']);
-        $stmt->bindParam(':dep_time',$data['dep_time']);
-        $stmt->bindParam(':return_time',$data['return_time']);
-        $stmt->bindParam(':seats',$data['seats']);
-        $stmt->bindParam(':flighttype',$data['flighttype']);
-
-        if($stmt->execute()){
-            return 'ok';
-        }else{
-            return 'error';
-        }
-        // $stmt->close();
-        $stmt = null;
-    }
-    static public function update($data){
-        $stmt = DB::connect()->prepare('UPDATE vols SET origin =:origin,destination =:destination,dep_time = :dep_time,return_time =:return_time,seats = :seats,flighttype = :flighttype WHERE id =:id');
-        $stmt->bindParam(':id',$data['id']);
-        $stmt->bindParam(':origin',$data['origin']);
-        $stmt->bindParam(':destination',$data['destination']);
-        $stmt->bindParam(':dep_time',$data['dep_time']);
-        $stmt->bindParam(':return_time',$data['return_time']);
-        $stmt->bindParam(':seats',$data['seats']);
-        $stmt->bindParam(':flighttype',$data['flighttype']);
-
-        if($stmt->execute()){
-            return 'ok';
-        }else{
-            return 'error';
-        }
-        // $stmt->close();
-        $stmt = null;
-    }
-    static public function delete($data){
-        $id = $data['id'];
-        try{
-            $query = 'DELETE FROM vols WHERE id=:id';
-            $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array(":id" => $id));
-            if($stmt->execute()){
-                return 'ok';
-            }
-        }catch(PDOException $ex){
-            echo 'error'.$ex->getMessage();
-        }
-    }
-    static public function searchVol($data){
-        $search = $data['search'];
-        try{
-            $query = 'SELECT * FROM vols WHERE origin LIKE ? OR destination LIKE ?';
-            $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array('%'.$search.'%','%'.$search.'%'));
-            $vols =$stmt->fetchAll();
-            return $vols;
-        }catch(PDOException $ex){
-            echo 'error'.$ex->getMessage();
-        }
-    }
-    static public function deleteRev($data)
-    {
-        $id = $data['id'];
-        try {
-            $query = 'DELETE FROM booking WHERE id=:id';
-            $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array(":id" => $id));
-            if ($stmt->execute()) {
-                return 'ok';
-            }
-        } catch (PDOException $ex) {
-            echo 'error' . $ex->getMessage();
-        }
-    }
-    static public function reserve($data)
-    {
-        $stmt = DB::connect()->prepare('SELECT * FROM vols WHERE id=:id');
-        // $stmt= DB::connect()->prepare('SELECT COUNT (*) FROM booking WHERE id=:id');  
-        $stmt = DB::connect()->prepare('INSERT INTO booking (id_user, id_vol, flight_type, origin, destination, dep_time) VALUES (:id_user,:id_vol,:flight_type,:origin,:destination,:dep_time)');
-        $stmt->bindParam(':id_user', $data['id_user']);
-        $stmt->bindParam(':id_vol', $data['id_vol']);
-        $stmt->bindParam(':flight_type', $data['flighttype']);
-        $stmt->bindParam(':origin', $data['origin']);
-        $stmt->bindParam(':destination', $data['destination']);
-        $stmt->bindParam(':dep_time', $data['dep_time']);
-        if($stmt->execute()){
-            return 'ok';
-        }
-
-    }
-    static public function addpass($data)
-    { 
-        $stmt = DB::connect()->prepare('INSERT INTO passenger (user_id, reservation_id, fullname,birthday) VALUES (:user_id,:reservation_id,:fullname,:birthday)');
-        $stmt->bindParam(':user_id', $data['user_id']);
-        $stmt->bindParam(':reservation_id', $data['reservation_id']);
-        $stmt->bindParam(':fullname', $data['fullname']);
-        $stmt->bindParam(':birthday', $data['birthday']);
-        if($stmt->execute()){
-            return 'ok';
-        }
     
+    
+
+    static public function addPassenger($data){
+        $stmt = DB::connect()->prepare('INSERT INTO passenger (user_id, full_name , passport) VALUES (:user_id, :full_name , :passport)');
+        $stmt->bindParam(':user_id',$data['user_id']);
+        $stmt->bindParam(':full_name',$data['full_name']);
+        $stmt->bindParam(':passport',$data['passport']);
+
+        if($stmt->execute()){
+            $stmt = DB::connect()->prepare('SELECT * from passenger group by id desc limit 1');
+            $stmt->execute();
+            $passenger = $stmt->fetch(PDO::FETCH_OBJ);
+            $data['passenger_id'] = $passenger->id;
+            $addReservation = Reservation::addReservationPassenger($data);
+            if($addReservation){
+                $stmt = DB::connect()->prepare('SELECT * FROM reservation as r,user as u,flight_airline f,passenger as p WHERE r.user_id = u.id and r.flight_id = f.id and r.passenger_id = p.id group by r.id desc limit 1');
+                $stmt->execute();
+                return $stmt->fetch(PDO::FETCH_OBJ);
+            }
+        }else{
+            return 'error';
+        }
+        // $stmt->close();
+        $stmt = null;
     }
+    static public function addReservationPassenger($data){
+        $stmt = DB::connect()->prepare('INSERT INTO reservation (user_id, flight_id, passenger_id) VALUES (:user_id, :flight_id, :passenger_id)');
+        $stmt->bindParam(':user_id',$data['user_id']);
+        $stmt->bindParam(':flight_id',$data['flight_id']);
+        $stmt->bindParam(':passenger_id',$data['passenger_id']);
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return 'error';
+        }
+        // $stmt->close();
+        $stmt = null;
+    }
+    static public function addReservationUser($data){
+        $stmt = DB::connect()->prepare('INSERT INTO reservation (user_id, flight_id) VALUES (:user_id, :flight_id)');
+        $stmt->bindParam(':user_id',$data['user_id']);
+        $stmt->bindParam(':flight_id',$data['flight_id']);
+        if($stmt->execute()){
+            $stmt = DB::connect()->prepare('SELECT * FROM reservation as r,user as u,flight_airline f,passenger as p WHERE r.user_id = u.id and r.flight_id = f.id group by r.id desc limit 1');
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        }else{
+            return 'error';
+        }
+        // $stmt->close();
+        $stmt = null;
+    }
+   
 }

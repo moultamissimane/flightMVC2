@@ -62,9 +62,11 @@ class UsersControllers
                 'password' => $password,
             );
             $result = User::createUser($data);
-            if ($result === 'ok') {
+            if ($result) {
                 Session::set('success', 'account created');
-                Redirect::to('loginUser');
+                $_SESSION['logged'] = true;
+                $_SESSION['user'] = $result;
+                Redirect::to('dashUser');
             } else {
                 echo $result;
             }

@@ -1,6 +1,8 @@
 <?php
 
-$cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
+    Session::isLogged();
+
+    $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
 
 ?>
 
@@ -32,14 +34,14 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>homeUser">Home</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Reservation</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Price</a>
-                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a> 
-            <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-md overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-            <span class="hidden ml-10 md:block"><?php echo 'qdf' ?></span>
+                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a>
+                <span class="hidden ml-10 md:block cursor-pointer text-white"><?php echo $_SESSION['user']->full_name ?></span>
+                <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-full cursor-pointer overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
             </div>
         </nav>
     </header>
 
-    
+
     <section style="background-image: url('./views/public/assets/images/loginbg.jpg');" class="flex h-screen items-center justify-center bg-cover bg-center">
     </section>
 
@@ -66,7 +68,7 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                             </select>
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <form action="reservation" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
                             <div class="flex border rounded bg-gray-300 items-center p-2 ">
                                 <select type="text" class="bg-gray-300 max-w-full focus:outline-none text-gray-700">
@@ -86,7 +88,7 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
                         <div class="flex ">
                             <button class="p-1  border w-1/2 rounded-md bg-[#71d4f6]  hover:bg-white hover:text-[#71d4f6] text-white">Search</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
     </section>
@@ -160,7 +162,7 @@ $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
     </section>
 
 
-<!-- Contact Form -->
+    <!-- Contact Form -->
     <div class="mt-8 mx-4">
         <div class="grid grid-cols-1 md:grid-cols-2">
             <div class="p-6 mr-2 bg-[#0aa4d8]  sm:rounded-lg">

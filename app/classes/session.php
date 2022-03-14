@@ -9,7 +9,12 @@ class Session{
     
     static public function isAdmin(){
         if(!isset($_SESSION['isAdmin'])){
-            Redirect::to(BASE_URL . '/loginAdmin');
+            Redirect::to('loginAdmin');
+          }
+    }
+    static public function isLogged(){
+        if(!isset($_SESSION['user'])){
+            Redirect::to('loginUser');
           }
     }
 }

@@ -8,12 +8,11 @@ class FlightControllers
         $flight =Flight::getAll();
         return $flight;
     }
-    public function getOneFlight()
+    static public function getOneFlight()
     {
-        if (isset($_POST['id'])) {
-            $flight = Flight::getOneFlight($_POST['id']);
+        if (isset($_POST['flight'])) {
+            $flight = Flight::getOneFlight($_POST['flight']);
             return $flight[0];
-            
         }
     }
     public function add()

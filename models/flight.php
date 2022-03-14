@@ -4,7 +4,13 @@ class Flight
     static public function getAll()
     {
         try {
-            $query = 'SELECT * FROM flight';
+            $query = 'SELECT flight_airline.*,
+                                flight_airline.seats 
+                                        - 
+                                (select count(*) from reservation 
+                                                where reservation.flight_id = flight_airline.id) 
+                                as available_seats
+                         FROM flight_airline';
             $stmt = DB::connect()->prepare($query);
             if ($stmt->execute()) {
                 return $stmt->fetchAll();
@@ -16,7 +22,13 @@ class Flight
     static public function getOneFlight($id)
     {
         try {
-            $query = 'SELECT * FROM flight where id='.$id ;
+            $query = 'SELECT flight_airline.*,
+                                flight_airline.seats 
+                                        - 
+                                (select count(*) from reservation 
+                                                where reservation.flight_id = flight_airline.id) 
+                                as available_seats
+                        FROM flight_airline where id=' . $id;
             $stmt = DB::connect()->prepare($query);
             if ($stmt->execute()) {
                 return $stmt->fetchAll();
@@ -42,41 +54,43 @@ class Flight
             return 'error';
         }
     }
-    static public function update($data){
+    static public function update($data)
+    {
         $stmt = DB::connect()->prepare('UPDATE Flight SET city_from=:city_from, city_to=:city_to, departure=:departure, arrive=:arrive, price=:price, airline_id=:airline_id, seats=:seats WHERE id= :id');
-        $stmt -> bindParam(':id', $data['id']);//placeholder 
-        $stmt -> bindParam(':city_from', $data['city_from']); 
-        $stmt -> bindParam(':city_to', $data['city_to']);
-        $stmt -> bindParam(':departure', $data['departure']);
-        $stmt -> bindParam(':arrive', $data['arrive']);
-        $stmt -> bindParam(':price', $data['price']);
-        $stmt -> bindParam(':airline_id', $data['airline_id']);
-        $stmt -> bindParam(':seats', $data['seats']);
+        $stmt->bindParam(':id', $data['id']); //placeholder 
+        $stmt->bindParam(':city_from', $data['city_from']);
+        $stmt->bindParam(':city_to', $data['city_to']);
+        $stmt->bindParam(':departure', $data['departure']);
+        $stmt->bindParam(':arrive', $data['arrive']);
+        $stmt->bindParam(':price', $data['price']);
+        $stmt->bindParam(':airline_id', $data['airline_id']);
+        $stmt->bindParam(':seats', $data['seats']);
 
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             return true;
-        }else{
+        } else {
             return 'error';
         }
         $stmt = null;
-
     }
 
-    static public function delete($id){
+    static public function delete($id)
+    {
         $stmt = DB::connect()->prepare("DELETE FROM Flight WHERE id = '$id'");
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             return true;
-        }else{
+        } else {
             return 'error';
         }
     }
-    static public function search($data){
+    static public function search($data)
+    {
         $search = $data['search'];
         try {
             $query = 'SELECT * FROM Flight WHERE city_from LIKE ? OR city_to LIKE ?';
             $stmt = DB::connect()->prepare($query);
-            $stmt ->execute(array('%'.$search.'%', '%'.$search.'%'));
-            return $flight = $stmt ->fetchAll();
+            $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+            return $flight = $stmt->fetchAll();
         } catch (PDOException $ex) {
             echo 'error' . $ex->getMessage();
         }
