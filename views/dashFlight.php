@@ -187,9 +187,12 @@ if (isset($_POST['delete']) and isset($_POST['id'])) {
         <!-- Social Traffic -->
         <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
           <div class="rounded-t mb-0 px-0 border-0">
-            <div class="flex flex-wrap items-center px-4 py-2">
+            <div class="flex flex-wrap justify-end items-center px-4 py-2">
               <div class="relative w-full max-w-full flex-grow flex-1">
-                <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Flights</h3>
+               <div class="flex justify-between font-semibold text-base text-gray-900 dark:text-gray-50">Flights
+                  <a href="<?php echo BASE_URL; ?>addFlight" class="rounded py-1 px-2  uppercase text-lg font-bold cursor-pointer tracking-wider text-[#71d4f6] border-[#71d4f6] border-2 hover:bg-[#0aa4d8] hover:text-white transition ease-out duration-700">+</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="block w-full overflow-x-auto">
@@ -203,7 +206,7 @@ if (isset($_POST['delete']) and isset($_POST['id'])) {
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">arrive</th>
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Prices</th>
                     <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Seats</th>
-                    <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Actions</th>
+                    <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold  min-w-140-px">Actions</th>
                   </tr>
                 </thead>
 
@@ -220,20 +223,20 @@ if (isset($_POST['delete']) and isset($_POST['id'])) {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex item-center justify-center">
                           <div class="w-4 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
+                            </svg> -->
                           </div>
                           <form method="POST" action="<?php echo BASE_URL; ?>updateFlight">
                             <input class="hidden" type="text" name="id" value="<?php echo $f['id'] ?>">
-                            <button name="update" class="w-4 cursor-pointer mr-2 transform hover:text-purple-500 hover:scale-110">
+                            <button name="update" class=" w-4 cursor-pointer mt-4 mr-2 transform hover:text-purple-500 hover:scale-110 transition ease-out duration-700">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                               </svg>
                             </button>
                           </form>
-                          <button onclick="handlePopup(<?php echo $f['id'] ?>)" class="w-4 cursor-pointer mr-2 transform hover:text-purple-500 hover:scale-110">
+                          <button onclick="handlePopup(<?php echo $f['id'] ?>)" class="w-4 cursor-pointer mr-2 transform hover:text-purple-500 hover:scale-110 transition ease-out duration-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" onclick="closePopup()">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>

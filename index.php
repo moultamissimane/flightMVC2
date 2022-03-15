@@ -5,9 +5,10 @@
     require_once './controllers/flightControllers.php';
     require_once './controllers/ReservationControllers.php';
     $home= new HomeController();
-    $pages=['dashFlight', 'dashUser', 'confirmation' ,'ticket' ,'loginUser','logout', 'signup', 'addAirline', 'addFlight', 'homeUser', 'loginAdmin' , 'updateFlight', 'reservation'];
+    $pages=['dashFlight', 'dashUser', 'confirmation' ,'ticket' ,'loginUser','logout', 'signup', 'addAirline', 'addFlight', 'home', 'loginAdmin' , 'updateFlight', 'reservation'];
     
     if(isset($_GET['page'])){
+        // check the item are available or not in array
         if(in_array($_GET['page'], $pages)){
             $page = $_GET['page'];
             $home -> index ($page);
@@ -15,7 +16,7 @@
             include('views/includes/404.php');
         }
     }else{
-        $home ->index('homeUser');
+        $home ->index('home');
     }
     require_once './views/includes/header.php';
 

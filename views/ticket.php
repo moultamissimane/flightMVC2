@@ -10,10 +10,10 @@ $reservations =  ReservationControllers::add();
 </style>
 
 <div class="relative">
-  <header class="print:hidden fixed top-0 w-screen left-0" x-data="{ isOpen: false }">
+  <header class="print:hidden backdrop-blur-2xl  fixed z-50 top-0 w-screen left-0 fixed top-0 w-screen left-0" x-data="{ isOpen: false }">
     <nav class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
-        <a href="<?php echo BASE_URL; ?>homeUser" class="text-xl font-bold text-[#0aa4d8] transition-colors duration-300 transform md:text-2xl hover:text-[#71d4f6]">Fly With Us</a>
+        <a href="<?php echo BASE_URL; ?>home" class="text-xl font-bold text-[#0aa4d8] transition-colors duration-300 transform md:text-2xl hover:text-[#71d4f6]">Fly With Us</a>
         <!-- Mobile menu button -->
         <div @click="isOpen = !isOpen" class="flex md:hidden">
           <button type="button" class="text-gray-200 hover:text-gray-400 focus:outline-none focus:text-gray-400" aria-label="toggle menu">
@@ -27,12 +27,12 @@ $reservations =  ReservationControllers::add();
 
       <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
       <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-        <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>homeUser">Home</a>
+        <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>home">Home</a>
         <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>reservation">Reservation</a>
         <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Price</a>
         <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Contact</a>
         <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-md overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-        <span class="hidden ml-10 md:block"><?php echo 'qdf' ?></span>
+        <span class="hidden ml-10 md:block"><?php echo $_SESSION['full_name'] ?></span>
       </div>
     </nav>
   </header>

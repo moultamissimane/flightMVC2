@@ -13,7 +13,7 @@
         <p class="text-2xl font-light leading-normal text-gray-600 md:text-3xl">
             Not Found </p>
 
-        <a href="<?php echo BASE_URL; ?>homeUser">
+        <a href="<?php echo BASE_URL; ?>home">
             <button class="px-4 py-2 mt-4 text-lg text-gray-600 transition-colors duration-200 transform border rounded-lg hover:bg-gray-100 focus:outline-none">
                 Go Home
             </button>

@@ -72,7 +72,20 @@ class UsersControllers
             }
         }
     }
-    
+    static public function getAll()
+    {
+        // getAll function to get all elements from employes (static)
+        $user =User::getAll();
+        return $user;
+    }
+    static public function getOneUser()
+    {
+        if (isset($_POST['user'])) {
+            $user = user::getOneuser($_POST['user']);
+            return $user[0];
+        }
+    }
+
     static public function logout(){
         session_destroy();
     }

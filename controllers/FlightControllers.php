@@ -30,7 +30,7 @@ class FlightControllers
             $result = Flight::add($data);
             if ($result) {
                 session::set('success', 'Flight Added');
-                // Redirect::to('dashFlight');
+                Redirect::to('dashFlight');
             } else {
                 echo $result;
             }
@@ -51,7 +51,7 @@ class FlightControllers
             );
             $result = Flight::update($data);
             if ($result === 'ok') {
-                session::set('success', 'Flight Modiffied');
+                session::set('success', 'Flight Modified');
                 Redirect::to('home');
             } else {
                 echo $result;
@@ -62,7 +62,7 @@ class FlightControllers
     public function delete($id){
         $result = Flight::delete($_POST['id']);
         if ($result === 'ok') {
-            session::set('success', 'Flight Modiffied');
+            session::set('success', 'Flight Modified');
             Redirect::to('dashFlight');
         } else {
             echo $result;

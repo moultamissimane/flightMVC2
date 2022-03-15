@@ -55,4 +55,29 @@ class user
         }
         $stmt = null;
     }
+
+    static public function getAll()
+    {
+        try {
+            $query = 'SELECT * FROM user';
+            $stmt = DB::connect()->prepare($query);
+            if ($stmt->execute()) {
+                return $stmt->fetchAll();
+            }
+        } catch (PDOException $ex) {
+            echo 'error' . $ex->getMessage();
+        }
+    }
+    static public function getOneUser($id)
+    {
+        try {
+            $query = 'SELECT * FROM user where id='.$id ;
+            $stmt = DB::connect()->prepare($query);
+            if ($stmt->execute()) {
+                return $stmt->fetchAll();
+            }
+        } catch (PDOException $ex) {
+            echo 'error' . $ex->getMessage();
+        }
+    }
 }

@@ -22,8 +22,6 @@ if (isset($_POST['id'])) {
 
 
 ?>
-
-<a href="<?php echo BASE_URL; ?>addFlight" class="rounded py-2 px-2 ml-6 uppercase text-lg font-bold cursor-pointer tracking-wider text-[#71d4f6] border-[#71d4f6] border-2 hover:bg-[#0aa4d8] hover:text-white transition ease-out duration-700">+</a>
 <div class="flex justify-center w-full">
     <div class="mt-10 ml-12 z-50 sm:top-auto sm:right-5 sm:left-auto sm:w-[350px] sm:h-[600px] border  bg-white shadow-2xl rounded-md">
 
@@ -37,11 +35,11 @@ if (isset($_POST['id'])) {
                 <input type="checkbox" name="botcheck" id="" style="display: none;" />
                 <div class="mb-4">
                     <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City From</label>
-                    <input type="text" name="city_from" id="city_from" placeholder="Casablanca" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" value="<?php echo $flight['city_from']; ?>" />
+                    <input type="text" name="city_from" id="city_from" placeholder="From" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" value="<?php echo $flight['city_from']; ?>" />
                 </div>
                 <div class="mb-4">
                     <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">City To</label>
-                    <input type="text" name="city_to" id="city_to" placeholder="Paris" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" value="<?php echo $flight['city_to']; ?>" />
+                    <input type="text" name="city_to" id="city_to" placeholder="To" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" value="<?php echo $flight['city_to']; ?>" />
                 </div>
                 <div class="mb-4">
                     <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Departure</label>
