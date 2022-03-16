@@ -29,27 +29,31 @@ $flight = FlightControllers::getOneFlight();
       <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
         <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>home">Home</a>
         <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>reservation">Reservation</a>
-        <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Price</a>
         <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Contact</a>
-        <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-md overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-        <span class="hidden ml-10 md:block"><?php echo 'qdf' ?></span>
+        <span class="hidden ml-10 md:block cursor-pointer text-black"><?php echo $_SESSION['full_name'] ?></span>
+        <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-full cursor-pointer overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
       </div>
     </nav>
   </header>
 
-  <div class="flex items-center mt-12 flex-col w-full">
+  <div class="flex items-center mt-36 flex-col w-full">
     <div class="p-10 xl:w-3/4 sm:w-full">
       <div class="max-w-full  bg-white flex flex-col rounded overflow-hidden shadow-lg">
         <div class="flex flex-row items-baseline flex-nowrap bg-gray-100 p-2">
-          <svg viewBox="0 0 64 64" data-testid="tripDetails-bound-plane-icon" pointer-events="all" aria-hidden="true" class="mt-2 mr-1" role="presentation" style="fill: rgb(102, 102, 102); height: 0.9rem; width: 0.9rem;">
+          <svg viewBox="0 0 64 64" class="mt-2 mr-1" role="presentation" style="fill: rgb(102, 102, 102); height: 0.9rem; width: 0.9rem;">
             <path d="M43.389 38.269L29.222 61.34a1.152 1.152 0 01-1.064.615H20.99a1.219 1.219 0 01-1.007-.5 1.324 1.324 0 01-.2-1.149L26.2 38.27H11.7l-3.947 6.919a1.209 1.209 0 01-1.092.644H1.285a1.234 1.234 0 01-.895-.392l-.057-.056a1.427 1.427 0 01-.308-1.036L1.789 32 .025 19.656a1.182 1.182 0 01.281-1.009 1.356 1.356 0 01.951-.448l5.4-.027a1.227 1.227 0 01.9.391.85.85 0 01.2.252L11.7 25.73h14.5L19.792 3.7a1.324 1.324 0 01.2-1.149A1.219 1.219 0 0121 2.045h7.168a1.152 1.152 0 011.064.615l14.162 23.071h8.959a17.287 17.287 0 017.839 1.791Q63.777 29.315 64 32q-.224 2.685-3.807 4.478a17.282 17.282 0 01-7.84 1.793h-9.016z"></path>
           </svg>
-          <h1 class="ml-2 uppercase font-bold text-gray-500">departure</h1>
-          <p class="ml-2 font-normal text-gray-500"><?php echo $flight['departure'] ?></p>
+          <div class="">
+            <h1 class="ml-2 uppercase font-bold text-gray-500">departure</h1>
+            <p class="ml-2 font-normal text-gray-500"><?php echo $flight['departure'] ?></p>
+          </div>
+            <div class="flex justify-end w-full my-3">
+              <button class="bg-[#71d4f6] my-button rounded-md px-2 py-2 text-white ">Complete Order</button>
+            </div>
         </div>
         <div class="mt-2 flex justify-start bg-white p-2">
           <div class="flex mx-2 ml-6 h8 px-2 flex-row items-baseline rounded-full bg-gray-100 p-1">
-            <svg viewBox="0 0 64 64" pointer-events="all" aria-hidden="true" class="etiIcon css-jbc4oa" role="presentation" style="fill: rgb(102, 102, 102); height: 12px; width: 12px;">
+            <svg viewBox="0 0 64 64" class="etiIcon css-jbc4oa" role="presentation" style="fill: rgb(102, 102, 102); height: 12px; width: 12px;">
               <path d="M43.389 38.269L29.222 61.34a1.152 1.152 0 01-1.064.615H20.99a1.219 1.219 0 01-1.007-.5 1.324 1.324 0 01-.2-1.149L26.2 38.27H11.7l-3.947 6.919a1.209 1.209 0 01-1.092.644H1.285a1.234 1.234 0 01-.895-.392l-.057-.056a1.427 1.427 0 01-.308-1.036L1.789 32 .025 19.656a1.182 1.182 0 01.281-1.009 1.356 1.356 0 01.951-.448l5.4-.027a1.227 1.227 0 01.9.391.85.85 0 01.2.252L11.7 25.73h14.5L19.792 3.7a1.324 1.324 0 01.2-1.149A1.219 1.219 0 0121 2.045h7.168a1.152 1.152 0 011.064.615l14.162 23.071h8.959a17.287 17.287 0 017.839 1.791Q63.777 29.315 64 32q-.224 2.685-3.807 4.478a17.282 17.282 0 01-7.84 1.793h-9.016z"></path>
             </svg>
             <p class="font-normal text-sm ml-1 text-gray-500">Economy</p>
@@ -74,7 +78,7 @@ $flight = FlightControllers::getOneFlight();
           </div>
         </div>
 
-        <form method="post" action="ticket" class="mt-4 bg-gray-100 flex flex-row flex-wrap md:flex-nowrap justify-between items-baseline">
+        <form method="post" action="ticket" id="form" class="myform hidden mt-4 bg-gray-100 flex flex-row flex-wrap md:flex-nowrap justify-between items-baseline">
           <div id="passengers_form" class="w-2/3 p-4 border-r-2 overflow-y-scroll max-h-[28rem]">
             <h2 class="text-3xl mb-3 font-bold">Add passengers</h2>
             <div class="<?php echo !$flight['available_seats'] > 1 ? 'flex justify-center items-center w-full h-full p-5' : 'hidden'; ?>">
@@ -82,14 +86,14 @@ $flight = FlightControllers::getOneFlight();
             </div>
             <div class="<?php echo $flight['available_seats'] > 1 ? '' : 'hidden'; ?>">
               <div class="flex justify-end w-full my-3">
-                <div onclick="addPassenger()" class="px-3 p-1 cursor-pointer rounded-md text-white bg-blue-600 hover:bg-blue-800 ">Add passenger</div>
+                <div onclick="addPassenger()" class="px-3 p-1 cursor-pointer rounded-md text-white bg-[#71d4f6] hover:bg-blue-400 ">Add passenger</div>
               </div>
               <div class="transition-all bg-slate-50 border-2 shadow-md p-3 rounded-lg hover:shadow-xl">
-                <h3 class="text-xl mb-3 font-bold">passengers 1</h3>
+                <h3 class="text-xl mb-3 font-bold">Passengers 1</h3>
                 <!-- form control -->
                 <div class="mb-4">
                   <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full name</label>
-                  <input type="text" value="qsdqsd" name="full_name[]" id="full_name" placeholder="enter  full name" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                  <input type="text" name="full_name[]" id="full_name" placeholder="enter full name" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                 </div>
                 <!-- form control -->
                 <!-- form control -->
@@ -101,14 +105,14 @@ $flight = FlightControllers::getOneFlight();
                 <!-- form control -->
                 <div class="mb-4">
                   <label for="passport" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">passport</label>
-                  <input type="text" value="qsdqsd" name="passport[]" id="passport" placeholder="enter  passport" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                  <input type="text" name="passport[]" id="passport" placeholder="enter passport" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                 </div>
                 <!-- form control -->
               </div>
             </div>
 
           </div>
-          <div class="w-1/3 p-4  ">
+          <div class="w-1/3 p-4 ">
             <h2 class="text-3xl mb-3 font-bold">Checkout</h2>
             <div class="flex justify-between w-full">
               <input type="text" class="hidden" name="flight_id" value="<?php echo $flight['id'] ?>">
@@ -128,7 +132,7 @@ $flight = FlightControllers::getOneFlight();
               <p id="price" class="ml-2 text-3xl font-bolde text-gray-500"><?php echo $flight['price'] ?>$</p>
             </div>
             <div class="flex justify-end w-full my-3">
-              <button name="submit" class="px-3 p-2 rounded-md w-full text-white bg-blue-600 hover:bg-blue-800 ">Complete order</button>
+              <button name="submit" class="px-3 p-2 rounded-md w-full text-white bg-[#71d4f6] hover:bg-blue-400 ">Complete order</button>
             </div>
           </div>
         </form>
@@ -139,20 +143,24 @@ $flight = FlightControllers::getOneFlight();
 </div>
 </div>
 <script>
+  const myform = document.querySelector('.myform');
+  document.querySelector('.my-button').addEventListener('click', () => {
+    myform.classList.toggle('hidden');
+  });
   const addPassenger = () => {
-    
+
     let Passengerform = document.createElement("div");
     let numOfPass = document.querySelectorAll('#passengers_form')[0].children.length - 1
-    if(+<?php echo $flight['available_seats']?> > numOfPass ){
+    if (+<?php echo $flight['available_seats'] ?> > numOfPass) {
 
-      
+
       Passengerform.classList.add(...["transition-all", "bg-slate-50", "border-2", "shadow-md", "p-3", "rounded-lg", "hover:shadow-xl", "my-3"])
       Passengerform.innerHTML = `
       <h3 class="text-xl mb-3 font-bold">passengers ${numOfPass}</h3>
       <!-- form control -->
       <div class="mb-4">
       <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Full name</label>
-                <input type="text" value="qsdqsd" name="full_name[]" id="full_name" placeholder="enter  full name" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                <input type="text" name="full_name[]" id="full_name" placeholder="enter full name" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
               </div>
               <!-- form control -->
               <!-- form control -->
@@ -164,13 +172,17 @@ $flight = FlightControllers::getOneFlight();
                 <!-- form control -->
                 <div class="mb-4">
                 <label for="passport" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">passport</label>
-                <input type="text" value="qsdqsd" name="passport[]" id="passport" placeholder="enter  passport" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                <input type="text" name="passport[]" id="passport" placeholder="enter passport" required class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
                 </div>
                 `
-                
-                document.getElementById('passengers_form').appendChild(Passengerform)
-              }else{
-                alert('not enough seats')
-              }
+
+      document.getElementById('passengers_form').appendChild(Passengerform)
+    } else {
+      alert('not enough seats')
+    }
   }
+
+  // const HandleForm = ()=>{
+  //     document.getElementById(form).classList.toggle('hidden')
+  // }
 </script>

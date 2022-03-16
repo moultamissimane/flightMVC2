@@ -19,8 +19,6 @@ if (isset($_POST['id'])) {
     Redirect::to('dashFlight');
 }
 
-
-
 ?>
 <div class="flex justify-center w-full">
     <div class="mt-10 ml-12 z-50 sm:top-auto sm:right-5 sm:left-auto sm:w-[350px] sm:h-[600px] border  bg-white shadow-2xl rounded-md">

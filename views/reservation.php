@@ -33,10 +33,9 @@ $flights = FlightControllers::getAll();
             <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>home">Home</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>reservation">Reservation</a>
-                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Price</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a>
-                <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-md overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
-                <span class="hidden ml-10 md:block"><?php echo $_SESSION['full_name'] ?></span>
+                <span class="hidden ml-10 md:block cursor-pointer text-black"><?php echo $_SESSION['full_name'] ?></span>
+                <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-full cursor-pointer overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
             </div>
         </nav>
     </header>
@@ -46,7 +45,7 @@ $flights = FlightControllers::getAll();
         <?php foreach ($flights as $f) { ?>
             <div class="m-10 xl:w-3/4 sm:w-full relative">
                 <div class="flex <?php echo  $f['available_seats'] > 0 ? 'hidden' : '' ?>  absolute w-full h-full top-0 left-0 rounded-lg bg-black bg-opacity-50  justify-center items-center">
-                    <span class="text-red-600 transform -rotate-45 font-bold text-8xl">
+                    <span class="text-red-500 transform -rotate-45 font-bold text-8xl">
                         Sold
                     </span>
                 </div>

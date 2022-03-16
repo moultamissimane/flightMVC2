@@ -2,7 +2,7 @@
 
     Session::isLogged();
 
-    $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid'];
+    $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid', 'Dakhla'];
 
 ?>
 
@@ -33,16 +33,23 @@
             <div :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>home">Home</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>reservation">Reservation</a>
-                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#">Price</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a>
-                <span class="hidden ml-10 md:block cursor-pointer text-white"><?php echo $_SESSION['user']->full_name ?></span>
+                <span class="hidden ml-10 md:block cursor-pointer text-blue-300"><?php echo $_SESSION['user']->full_name ?></span>
                 <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-full cursor-pointer overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
+                <a href="<?php echo BASE_URL; ?>logout" class="flex items-center mr-4 text-white hover:text-[#71d4f6]">
+              <span class="inline-flex mr-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+              </span>
+              Logout
+            </a>
             </div>
         </nav>
     </header>
 
 
-    <section style="background-image: url('./views/public/assets/images/loginbg.jpg');" class="flex h-screen items-center justify-center bg-cover bg-center">
+    <section style="background-image: url('./views/public/assets/images/loginbg-Recovered.png');" class="flex h-screen items-center justify-center bg-cover bg-center">
     </section>
 
     <section class="bg-white">
@@ -50,43 +57,57 @@
             <div class="container  mx-auto flex justify-center items-center  md:p-0">
                 <div class="border -mt-40 border-gray-300 p-8 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg">
                     <div class="flex flex-col md:flex-row">
+                        <!-- <div class="">
+                            <span class="ml-2">Departure</span>
+                            <div class="border p-2 rounded">
+                            <input type="date" name="name" id="name" class=" placeholder-black rounded-lg  text-black  font-semibold " />
+                            </div>
+                        </div> -->
                         <div class="">
-                            <select class="border p-2 rounded">
-                                <option>hi</option>
-                            </select>
-                        </div>
+                        <span class="ml-8">Passangers</span>
                         <div class="pt-6 md:pt-0 md:pl-6">
                             <select class="border p-2 rounded">
-                                <option>4 Passangers</option>
-                                <option>3 Passangers</option>
+                                <option>1 Passangers</option>
                                 <option>2 Passangers</option>
+                                <option>3 Passangers</option>
+                                <option>More Passangers?</option>
                             </select>
                         </div>
+                        </div>
+                        <div>
+                        <span class="ml-8">Type</span>
                         <div class="pt-6 md:pt-0 md:pl-6">
                             <select class="border p-2 rounded">
                                 <option>Economy</option>
                             </select>
                         </div>
+                        </div>
                     </div>
                     <form action="reservation" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
-                            <div class="flex border rounded bg-gray-300 items-center p-2 ">
-                                <select type="text" class="bg-gray-300 max-w-full focus:outline-none text-gray-700">
+                        <div class="grid grid-cols-2 gap-2 p-2 rounded">
+                            <div>
+                            <span class="ml-2">Departure</span>
+                            <div class="flex border rounded bg-white-300 items-center p-2 ">
+                                <select type="text" class="bg-white-300 max-w-full focus:outline-none text-gray-700 ">
                                     <?php foreach ($cities as $c) { ?>
-                                        <option class="flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-teal-600 hover:text-teal-100 hover:border-teal-600" value="<?php echo $c; ?>"><?php echo $c; ?></option>
+                                        <option class="flex w-full items-center p-2 pl-2 border-transparent bg-white "><?php echo $c; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
-                            <div class="flex border rounded bg-gray-300 items-center p-2 ">
-                                <select type="text" class="bg-gray-300 max-w-full focus:outline-none text-gray-700">
+                            </div>
+                            <div class="">
+                                <span class="ml-2">Arrive</span>
+                            <div class="flex border rounded bg-white-300 items-center p-2 ">
+                                <select type="text" class="bg-white-300 max-w-full focus:outline-none  text-gray-700">
                                     <?php foreach ($cities as $c) { ?>
-                                        <option value="<?php echo $c; ?>"><?php echo $c; ?></option>
+                                        <option class="flex w-full items-center p-2 pl-2 bg-white " ><?php echo $c; ?></option>
                                     <?php } ?>
                                 </select>
+                            </div>
                             </div>
                         </div>
-                        <div class="flex ">
-                            <button class="p-1  border w-1/2 rounded-md bg-[#71d4f6]  hover:bg-white hover:text-[#71d4f6] text-white">Search</button>
+                        <div class="flex flex-col mt-20  ">
+                            <button class="p-1 items-center mr-10 border w-1/2 rounded-md bg-[#71d4f6]  hover:bg-white hover:text-[#71d4f6] text-white">Search</button>
                         </div>
                     </form>
                 </div>
