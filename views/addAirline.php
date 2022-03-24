@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
             <h3 class="text-lg text-white">Airline</h3>
         </div>
         <div class="bg-gray-50 flex-grow p-6">
-            <form method="POST" id="form" class="needs-validation" novalidate>
+            <form method="POST" id="form" class="needs-validation">
                 <input type="hidden" name="apikey" value="YOUR_ACCESS_KEY_HERE" />
                 <input type="hidden" name="subject" value="New Submission from Web3Forms" />
                 <input type="checkbox" name="botcheck" id="" style="display: none;" />
@@ -40,28 +40,3 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
-
-<style>
-    .invalid-feedback,
-    .empty-feedback {
-        display: none;
-    }
-
-    .was-validated :placeholder-shown:invalid~.empty-feedback {
-        display: block;
-    }
-
-    .was-validated :not(:placeholder-shown):invalid~.invalid-feedback {
-        display: block;
-    }
-
-    .is-invalid,
-    .was-validated :invalid {
-        border-color: #dc3545;
-    }
-
-    .is-invalid,
-    .was-validated :invalid:focus {
-        --tw-ring-color: rgba(220, 53, 69, 0.2);
-    }
-</style>

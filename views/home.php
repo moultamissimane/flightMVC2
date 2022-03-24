@@ -1,8 +1,8 @@
 <?php
 
-    Session::isLogged();
+Session::isLogged();
 
-    $cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid', 'Dakhla'];
+$cities = ['Casablanca', 'Paris', 'Marrakech', 'Madrid', 'Dakhla'];
 
 ?>
 
@@ -34,16 +34,18 @@
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>home">Home</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>reservation">Reservation</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a>
+        <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>myReservations">My Reservations</a>
+
                 <span class="hidden ml-10 md:block cursor-pointer text-blue-300"><?php echo $_SESSION['user']->full_name ?></span>
                 <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-full cursor-pointer overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
                 <a href="<?php echo BASE_URL; ?>logout" class="flex items-center mr-4 text-white hover:text-[#71d4f6]">
-              <span class="inline-flex mr-1">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                </svg>
-              </span>
-              Logout
-            </a>
+                    <span class="inline-flex mr-1 text-blue-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                        </svg>
+                    </span>
+                    Logout
+                </a>
             </div>
         </nav>
     </header>
@@ -54,9 +56,9 @@
 
     <section class="bg-white">
         <div>
-            <div class="container  mx-auto flex justify-center items-center  md:p-0">
-                <div class="border -mt-40 border-gray-300 p-8 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg">
-                    <div class="flex flex-col md:flex-row">
+            <div class="container sm:w-3/4  mx-auto flex justify-center items-center space-x-10  md:p-0">
+                <div class="border -mt-40 border-gray-300 p-8 grid grid-cols-1 gap-6 gap-x-8 bg-white shadow-lg rounded-lg w-2/4 ">
+                    <div class="flex space-x-20 md:flex-row items-center md:space-x-0 justify-center lg:space-x-4">
                         <!-- <div class="">
                             <span class="ml-2">Departure</span>
                             <div class="border p-2 rounded">
@@ -65,7 +67,7 @@
                         </div> -->
                         <div class="">
                         <span class="ml-8">Passangers</span>
-                        <div class="pt-6 md:pt-0 md:pl-6">
+                        <div class=" md:pt-0 md:pl-6">
                             <select class="border p-2 rounded">
                                 <option>1 Passangers</option>
                                 <option>2 Passangers</option>
@@ -76,15 +78,15 @@
                         </div>
                         <div>
                         <span class="ml-8">Type</span>
-                        <div class="pt-6 md:pt-0 md:pl-6">
+                        <div class=" md:pt-0 md:pl-6">
                             <select class="border p-2 rounded">
                                 <option>Economy</option>
                             </select>
                         </div>
                         </div>
                     </div>
-                    <form action="reservation" method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="grid grid-cols-2 gap-2 p-2 rounded">
+                    <form action="reservation" method="post" class="">
+                        <div class="flex justify-center rounded lg:space-x-12 px-10 py-2">
                             <div>
                             <span class="ml-2">Departure</span>
                             <div class="flex border rounded bg-white-300 items-center p-2 ">
@@ -106,10 +108,10 @@
                             </div>
                             </div>
                         </div>
-                        <div class="flex flex-col mt-20  ">
-                            <button class="p-1 items-center mr-10 border w-1/2 rounded-md bg-[#71d4f6]  hover:bg-white hover:text-[#71d4f6] text-white">Search</button>
-                        </div>
                     </form>
+                    <div class=" mx-auto ">
+                        <button class=" items-center  border rounded-md bg-[#71d4f6]  hover:bg-white hover:duration-700 hover:text-[#71d4f6] text-white px-10 py-2">Search</button>
+                    </div>
                 </div>
             </div>
     </section>
@@ -228,8 +230,6 @@
         </div>
     </div>
     <!-- ./Contact Form -->
-
-
 
     <footer class="border-t mt-6">
         <div class="container flex items-center justify-between px-6 py-8 mx-auto">

@@ -5,7 +5,7 @@
     require_once './controllers/flightControllers.php';
     require_once './controllers/ReservationControllers.php';
     $home= new HomeController();
-    $pages=['dashFlight', 'dashUser', 'confirmation' ,'ticket' ,'loginUser','logout', 'signup', 'addAirline', 'addFlight', 'home', 'loginAdmin' , 'updateFlight', 'reservation'];
+    $pages=['dashFlight', 'dashUser', 'confirmation','myReservations' ,'ticket' ,'loginUser','logout', 'signup', 'addAirline', 'addFlight', 'home', 'loginAdmin' , 'updateFlight', 'reservation'];
     
     if(isset($_GET['page'])){
         // check the item are available or not in array

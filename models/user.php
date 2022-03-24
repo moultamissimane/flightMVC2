@@ -1,7 +1,6 @@
 <?php
 class user
 {
-
     static public function login($data)
     {
         $email = $data['email'];
@@ -9,6 +8,7 @@ class user
             $query = 'SELECT * FROM user Where email=:email';
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":email" => $email));
+            // FETCH_OBJ returns each row as an oject
             $user = $stmt->fetch(PDO::FETCH_OBJ);
             return $user;
             if ($stmt->execute()) {
@@ -45,6 +45,7 @@ class user
             $stmt->bindParam(':password', $data['password']);
             $res = $stmt->execute();
             if ($res) {
+                // group by yaeni kygroupi  ghir bl id desc: descendent limit 1 yaeni ghir 1
                 $stmt = DB::connect()->prepare('SELECT * from user group by id desc limit 1');
                 $stmt->execute();
                 $user = $stmt->fetch(PDO::FETCH_OBJ);
@@ -68,6 +69,7 @@ class user
             echo 'error' . $ex->getMessage();
         }
     }
+
     static public function getOneUser($id)
     {
         try {

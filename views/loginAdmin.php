@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
                             <button name="submit" class="mt-4 mb-3 w-full bg-[#71d4f6] hover:bg-[#0aa4d8] text-white py-2 rounded-md transition duration-100">Login now</button>
                         </div>
                     </form>
-                    <p class="mt-8"> Dont have an account? <span class="cursor-pointer text-sm text-blue-600"> Join now</span></p>
+                    <!-- <p class="mt-8"> Dont have an account? <span class="cursor-pointer text-sm text-blue-600"> Join now</span></p> -->
                 </div>
             </div>
         </div>

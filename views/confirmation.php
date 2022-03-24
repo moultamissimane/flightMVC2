@@ -1,8 +1,9 @@
 <?php
+
 $flight = FlightControllers::getOneFlight();
 ?>
 
-<!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/a lpine.min.js" defer></script> -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/a lpine.min.js" defer></script>
 <style>
   html {
     scroll-behavior: smooth;
@@ -47,9 +48,9 @@ $flight = FlightControllers::getOneFlight();
             <h1 class="ml-2 uppercase font-bold text-gray-500">departure</h1>
             <p class="ml-2 font-normal text-gray-500"><?php echo $flight['departure'] ?></p>
           </div>
-            <div class="flex justify-end w-full my-3">
-              <button class="bg-[#71d4f6] my-button rounded-md px-2 py-2 text-white ">Complete Order</button>
-            </div>
+          <div class="flex justify-end w-full my-3">
+            <button class="bg-[#71d4f6] my-button rounded-md px-2 py-2 text-white ">Complete Order</button>
+          </div>
         </div>
         <div class="mt-2 flex justify-start bg-white p-2">
           <div class="flex mx-2 ml-6 h8 px-2 flex-row items-baseline rounded-full bg-gray-100 p-1">
@@ -143,13 +144,17 @@ $flight = FlightControllers::getOneFlight();
 </div>
 </div>
 <script>
+  // script of button of the form bellow
   const myform = document.querySelector('.myform');
   document.querySelector('.my-button').addEventListener('click', () => {
     myform.classList.toggle('hidden');
   });
+  // script of passengers  
   const addPassenger = () => {
 
     let Passengerform = document.createElement("div");
+    // add a new passenger each time i click on add passenger button 
+    // add passenger: child 1, add passenger button: child 2 and the div holding fields: childre 3
     let numOfPass = document.querySelectorAll('#passengers_form')[0].children.length - 1
     if (+<?php echo $flight['available_seats'] ?> > numOfPass) {
 

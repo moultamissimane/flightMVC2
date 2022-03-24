@@ -21,7 +21,7 @@ class AirlineControllers
     public function add()
     {
         if (isset($_POST['submit'])) {
-            $data = array( //array associative
+            $data = array( //array associative is used to store key value pairs
                 'name' => $_POST['name'],
                 'abreviation' => $_POST['abreviation'],
                 'src' => $_POST['src'],

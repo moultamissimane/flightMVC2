@@ -1,9 +1,8 @@
 <?php
 
-
+Session::isLogged();
 
 $flights = FlightControllers::getAll();
-// var_dump($flights[0]);
 
 ?>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -34,6 +33,8 @@ $flights = FlightControllers::getAll();
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>home">Home</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>reservation">Reservation</a>
                 <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="#contact">Contact</a>
+                <a class="text-sm font-medium text-[#0aa4d8] transition-colors duration-300 transform hover:text-[#71d4f6]" href="<?php echo BASE_URL; ?>myReservations">My Reservations</a>
+
                 <span class="hidden ml-10 md:block cursor-pointer text-black"><?php echo $_SESSION['full_name'] ?></span>
                 <img class=" h-7 md:w-10 md:h-10 ml-2 rounded-full cursor-pointer overflow-hidden" src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
             </div>
@@ -90,32 +91,32 @@ $flights = FlightControllers::getAll();
                             </svg>
                             <div class="text-sm mx-2 flex flex-col">
                                 <p class="">Standard Ticket</p>
-                                <p class="font-bold">$<?php echo $f['price']?></p>
-                                <p class="font-bold">Available Seat :<?php echo $f['available_seats']?></p>
+                                <p class="font-bold">$<?php echo $f['price'] ?></p>
+                                <p class="font-bold">Available Seat :<?php echo $f['available_seats'] ?></p>
                                 <p class="text-xs text-gray-500">Price per adult</p>
                             </div>
-                          
-                    </div>
-                    <div class="md:border-l-2 mx-6 md:border-dotted flex flex-row py-4 mr-6 flex-wrap">
-                        <svg class="w-12 h-10 p-2 mx-2 self-center bg-green-800 rounded-full fill-current text-white" viewBox="0 0 64 64" pointer-events="all" aria-hidden="true" class="etiIcon css-ecvhkc" role="presentation" style="fill: rgb(255, 255, 255);">
-                            <path d="M62.917 38.962C59.376 53.71 47.207 64 31.833 64a31.93 31.93 0 01-21.915-8.832l-5.376 5.376a2.65 2.65 0 01-1.874.789A2.685 2.685 0 010 58.668V40a2.687 2.687 0 012.667-2.667h18.666A2.687 2.687 0 0124 40a2.645 2.645 0 01-.793 1.877L17.5 47.58a21.244 21.244 0 0032.665-4.414 33.706 33.706 0 002.208-4.873 1.292 1.292 0 011.25-.96h8a1.342 1.342 0 011.333 1.337.738.738 0 01-.041.293M64 24a2.687 2.687 0 01-2.667 2.668H42.667A2.687 2.687 0 0140 24a2.654 2.654 0 01.793-1.877l5.749-5.746a21.336 21.336 0 00-32.706 4.457 33.224 33.224 0 00-2.208 4.873 1.293 1.293 0 01-1.25.96H2.085A1.342 1.342 0 01.752 25.33v-.293C4.334 10.247 16.626 0 32 0a32.355 32.355 0 0122.041 8.832l5.419-5.376a2.644 2.644 0 011.872-.789A2.685 2.685 0 0164 5.333z"></path>
-                        </svg>
-                        <div class="text-sm mx-2 flex flex-col">
-                            <p>Flexible Ticket</p>
-                            <p class="font-bold">$<?php echo $f['price'] ?></p>
-                            <p class="text-xs text-gray-500">Price per adult</p>
+
                         </div>
-                        <form action="<?php echo BASE_URL ?>confirmation" method="POST">
-                            <input class="hidden" type="text" name="flight" value="<?php echo $f['id']; ?>">
-                            <button class="w-32 h-11 rounded flex border-solid border text-white bg-green-800 mx-2 justify-center place-items-center">
-                                <div class="">Book</div>
-                            </button>
-                        </form>
+                        <div class="md:border-l-2 mx-6 md:border-dotted flex flex-row py-4 mr-6 flex-wrap">
+                            <svg class="w-12 h-10 p-2 mx-2 self-center bg-green-800 rounded-full fill-current text-white" viewBox="0 0 64 64" pointer-events="all" aria-hidden="true" class="etiIcon css-ecvhkc" role="presentation" style="fill: rgb(255, 255, 255);">
+                                <path d="M62.917 38.962C59.376 53.71 47.207 64 31.833 64a31.93 31.93 0 01-21.915-8.832l-5.376 5.376a2.65 2.65 0 01-1.874.789A2.685 2.685 0 010 58.668V40a2.687 2.687 0 012.667-2.667h18.666A2.687 2.687 0 0124 40a2.645 2.645 0 01-.793 1.877L17.5 47.58a21.244 21.244 0 0032.665-4.414 33.706 33.706 0 002.208-4.873 1.292 1.292 0 011.25-.96h8a1.342 1.342 0 011.333 1.337.738.738 0 01-.041.293M64 24a2.687 2.687 0 01-2.667 2.668H42.667A2.687 2.687 0 0140 24a2.654 2.654 0 01.793-1.877l5.749-5.746a21.336 21.336 0 00-32.706 4.457 33.224 33.224 0 00-2.208 4.873 1.293 1.293 0 01-1.25.96H2.085A1.342 1.342 0 01.752 25.33v-.293C4.334 10.247 16.626 0 32 0a32.355 32.355 0 0122.041 8.832l5.419-5.376a2.644 2.644 0 011.872-.789A2.685 2.685 0 0164 5.333z"></path>
+                            </svg>
+                            <div class="text-sm mx-2 flex flex-col">
+                                <p>Flexible Ticket</p>
+                                <p class="font-bold">$<?php echo $f['price'] ?></p>
+                                <p class="text-xs text-gray-500">Price per adult</p>
+                            </div>
+                            <form action="<?php echo BASE_URL ?>confirmation" method="POST">
+                                <input class="hidden" type="text" name="flight" value="<?php echo $f['id']; ?>">
+                                <button class="w-32 h-11 rounded flex border-solid border text-white bg-green-800 mx-2 justify-center place-items-center">
+                                    <div class="">Book</div>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+        <?php } ?>
     </div>
-<?php } ?>
-</div>
 </div>
 </div>

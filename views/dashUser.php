@@ -99,6 +99,16 @@ $user = $data->getAll();
               <span class="ml-2 text-sm tracking-wide truncate">Users</span>
             </a>
           </li>
+          <li>
+            <a href="<?php echo BASE_URL; ?>addAirline" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+              <span class="inline-flex justify-center items-center ml-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                </svg>
+              </span>
+              <span class="ml-2 text-sm tracking-wide truncate">Airline</span>
+            </a>
+          </li>
           <li class="px-5 hidden md:block">
             <div class="flex flex-row items-center mt-5 h-8">
               <div class="text-sm font-light tracking-wide text-gray-400 uppercase">Settings</div>
@@ -132,57 +142,7 @@ $user = $data->getAll();
     <!-- ./Sidebar -->
 
     <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
-
-      <!-- Statistics Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 pr-10 gap-20">
-        <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <div class="text-right">
-            <p class="text-2xl">1,257</p>
-            <p>Visitors</p>
-          </div>
-        </div>
-        <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-            </svg>
-          </div>
-          <div class="text-right">
-            <p class="text-2xl">557</p>
-            <p>Orders</p>
-          </div>
-        </div>
-        <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-            </svg>
-          </div>
-          <div class="text-right">
-            <p class="text-2xl">$11,257</p>
-            <p>Sales</p>
-          </div>
-        </div>
-        <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
-          <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
-            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <div class="text-right">
-            <p class="text-2xl">$75,257</p>
-            <p>Balances</p>
-          </div>
-        </div>
-      </div>
-      <!-- ./Statistics Cards -->
-
-
+      
       <!-- Client Table -->
       <div class="mt-4 mx-4">
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -196,24 +156,25 @@ $user = $data->getAll();
                   <th class="px-4 py-3">Password</th>
                 </tr>
               </thead>
-              <?php foreach ($user as $u){ ?>
-              <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
-                  <td class="px-4 py-3">
-                    <div class="flex items-center text-sm">
-                      <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block"><div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+              <?php foreach ($user as $u) { ?>
+                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                  <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                    <td class="px-4 py-3">
+                      <div class="flex items-center text-sm">
+                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                          <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                        </div>
+                        <div>
+                          <p class="font-semibold"><?php echo $u['full_name']; ?></p>
+                        </div>
                       </div>
-                      <div>
-                        <p class="font-semibold"><?php echo $u['full_name'];?></p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-4 py-3 text-sm"><?php echo $u['email'];?></td>
-                  <td class="px-4 py-3 text-sm"><?php echo $u['date_of_birth'];?></td>
-                  <td class="px-4 py-3 text-xs"><?php echo $u['password'];?></td>
-                </tr>
+                    </td>
+                    <td class="px-4 py-3 text-sm"><?php echo $u['email']; ?></td>
+                    <td class="px-4 py-3 text-sm"><?php echo $u['date_of_birth']; ?></td>
+                    <td class="px-4 py-3 text-xs"><?php echo $u['password']; ?></td>
+                  </tr>
                 <?php } ?>
-              </tbody>
+                </tbody>
             </table>
           </div>
         </div>

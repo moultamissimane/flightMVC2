@@ -15,9 +15,10 @@ class UsersControllers
             if (password_verify($_POST['password'], $result->password)) {
                 $_SESSION['logged'] = true;
                 $_SESSION['full_name'] = $result->fullname;
-                Redirect::to('dashUser');
+                Redirect::to('home');
             
             } else {
+                // set cookie from session class
                 Session::set('error', 'name or password incorrect');
                 Redirect::to('loginUser');
 
@@ -34,11 +35,11 @@ class UsersControllers
                 $_SESSION['logged'] = true;
                 $_SESSION['isAdmin'] = true;
                 $_SESSION['full_name'] = $result->full_name;
-                Redirect::to('dashUser');
+                Redirect::to('dashFlight');
             
             } else {
                 Session::set('error', 'name or password incorrect');
-                Redirect::to('loginAdmin');
+                Redirect::to('home');
 
             }
         }
@@ -66,7 +67,7 @@ class UsersControllers
                 Session::set('success', 'account created');
                 $_SESSION['logged'] = true;
                 $_SESSION['user'] = $result;
-                Redirect::to('dashUser');
+                Redirect::to('home');
             } else {
                 echo $result;
             }

@@ -4,6 +4,11 @@ class Flight
     static public function getAll()
     {
         try {
+            // we created a table using view in PHPMyAdmin (DB) so that we can associate two table flight and airline 
+            // this query used to know how many seats areavailable 
+            // we start from SELECTING  all from that table and flight_airline.seats 
+            // next we decrease number of total seats from reservation table (with id) as available_seats from the table we have (flight_airline)
+            // select count(*) returns the number of rows   
             $query = 'SELECT flight_airline.*,
                                 flight_airline.seats 
                                         - 
@@ -83,16 +88,16 @@ class Flight
             return 'error';
         }
     }
-    static public function search($data)
-    {
-        $search = $data['search'];
-        try {
-            $query = 'SELECT * FROM Flight WHERE city_from LIKE ? OR city_to LIKE ?';
-            $stmt = DB::connect()->prepare($query);
-            $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
-            return $flight = $stmt->fetchAll();
-        } catch (PDOException $ex) {
-            echo 'error' . $ex->getMessage();
-        }
-    }
+    // static public function search($data)
+    // {
+    //     $search = $data['search'];
+    //     try {
+    //         $query = 'SELECT * FROM Flight WHERE city_from LIKE ? OR city_to LIKE ?';
+    //         $stmt = DB::connect()->prepare($query);
+    //         $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+    //         return $flight = $stmt->fetchAll();
+    //     } catch (PDOException $ex) {
+    //         echo 'error' . $ex->getMessage();
+    //     }
+    // }
 }

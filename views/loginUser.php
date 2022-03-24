@@ -43,12 +43,9 @@ if(isset($_POST['submit'])){
                             </div>
                         </div>
                     </form>
-                    <p class="mt-8"> Dont have an account? <span class="cursor-pointer text-sm text-blue-600"> Join now</span></p>
+                    <p class="mt-8">Don't have an account?<a href="<?php echo BASE_URL; ?>signup"> <span class="cursor-pointer text-sm text-blue-600">Join now</span></a></p>
                 </div>
             </div>
         </div>
     </div>
     </div>
-</body>
-
-</html>
